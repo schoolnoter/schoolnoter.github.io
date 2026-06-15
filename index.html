@@ -1,0 +1,1390 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SchoolNoter</title><meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta http-equiv="X-Content-Type-Options" content="nosniff"><meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate"><meta name="referrer" content="no-referrer"><link rel="icon" type="image/png" href="favicon-1.png" id="favicon"><script>!function(){var f=document.getElementById('favicon'),i=0,s=['favicon-1.png','favicon-2.png','favicon-3.png'];setInterval(function(){i=(i+1)%3;f.href=s[i]},200)}();</script><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }:root {--bg: #0A0A0A; --bg-card: rgba(255,255,255,0.06); --bg-sidebar: #000000;--text: #F5F5F5; --text-secondary: #888888; --border: #222222;--primary: #A8D5A2; --primary-light: #B8E0B3; --primary-dark: #8BBF85;--gradient: #A8D5A2; --gradient-hot: #A8D5A2;--grade-a: #6B9E78; --grade-a-bg: rgba(107,158,120,0.15);--grade-b: #6B8EB5; --grade-b-bg: rgba(107,142,181,0.15);--grade-c: #D45555; --grade-c-bg: rgba(212,85,85,0.15);--grade-d: #C04040; --grade-d-bg: rgba(192,64,64,0.15);--grade-e: #B55555; --grade-e-bg: rgba(181,85,85,0.15);--shadow: none; --shadow-lg: none;--radius: 0px; --radius-sm: 0px;--sidebar-width: 260px; --topbar-height: 0px;--gold: #A8D5A2; --glass-border: rgba(255,255,255,0.1);}[data-theme="dark"] {--bg: #0A0A0A; --bg-card: rgba(255,255,255,0.06); --bg-sidebar: #000000;--text: #F5F5F5; --text-secondary: #888888; --border: #222222;--shadow: none; --shadow-lg: none;--grade-a-bg: rgba(107,158,120,0.15); --grade-b-bg: rgba(107,142,181,0.15);--grade-c-bg: rgba(212,85,85,0.15); --grade-d-bg: rgba(192,64,64,0.15); --grade-e-bg: rgba(181,85,85,0.15);}@keyframes diamondSpin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }.diamond-gem { animation: diamondSpin 4s linear infinite; }.sidebar-nav::-webkit-scrollbar { display: none; }.sidebar-nav { -ms-overflow-style: none; scrollbar-width: none; }body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background 0.3s, color 0.3s; }h1, h2, h3, .page-title, .login-logo, .sidebar-logo, .mobile-topbar .logo { font-family: 'Space Grotesk', 'Inter', sans-serif; }/* Login page */#login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; position: relative; overflow: hidden; }#login-page::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }#login-page::after { display: none; }.login-video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }.login-container { background: #000; border: 1px solid #222; border-radius: 0; padding: 56px 44px; width: 440px; max-width: 90vw; box-shadow: none; position: relative; z-index: 2; text-align: center; }.login-logo { font-size: 14px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #A8D5A2; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 4px; -webkit-text-fill-color: #A8D5A2; background: none; -webkit-background-clip: unset; background-clip: unset; }.login-logo-diamond { display: block; margin: 0 auto 24px; }.login-subtitle { color: #888; font-size: 12px; margin-bottom: 36px; text-transform: uppercase; letter-spacing: 2px; }.form-group { margin-bottom: 20px; text-align: left; }.form-group label { display: block; font-size: 11px; font-weight: 600; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1.5px; }.form-group input { width: 100%; padding: 14px 16px; border: 1px solid #333; border-radius: 0; font-size: 15px; font-family: inherit; background: #0A0A0A; color: #F5F5F5; transition: border-color 0.2s; outline: none; }.form-group input:focus { border-color: var(--gold); box-shadow: none; }.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border: none; border-radius: 0; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; }.btn-primary { width: 100%; background: var(--gold); color: #000; font-size: 13px; font-weight: 700; padding: 16px; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }.btn-primary:hover { background: #B8E0B3; box-shadow: none; transform: none; }.btn-primary:active { transform: none; }.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }.btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }.btn-guest { width: 100%; background: none; color: var(--gold); border: 1px solid var(--gold); margin-top: 12px; padding: 14px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }.btn-guest:hover { background: rgba(168,213,162,0.08); }.login-error { background: rgba(181,85,85,0.15); color: var(--grade-e); padding: 12px 16px; border-radius: 0; font-size: 14px; margin-bottom: 16px; display: none; }.login-error.show { display: block; }.login-credit { color: #555; font-size: 11px; margin-top: 24px; letter-spacing: 1px; }.login-credit a { color: #888; text-decoration: none; }.login-credit a:hover { color: var(--gold); }/* App layout */#app { display: none; min-height: 100vh; }#app.active { display: flex; }/* Dashboard video background */.dash-video-bg { position: fixed; top: 0; left: var(--sidebar-width); right: 0; bottom: 0; z-index: 0; overflow: hidden; }.dash-video-bg video { width: 100%; height: 100%; object-fit: cover; }.dash-video-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.8); }/* Sidebar */.sidebar { width: var(--sidebar-width); background: var(--bg-sidebar); border-right: 1px solid #1A1A1A; height: 100vh; position: fixed; left: 0; top: 0; display: flex; flex-direction: column; z-index: 100; transition: transform 0.3s, background 0.3s; }.sidebar-header { padding: 28px 24px 24px; border-bottom: 1px solid #1A1A1A; display: flex; align-items: center; gap: 14px; }.sidebar-logo { font-size: 16px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #F5F5F5; letter-spacing: 6px; text-transform: uppercase; -webkit-text-fill-color: #F5F5F5; background: none; -webkit-background-clip: unset; background-clip: unset; }.sidebar-logo-diamond { flex-shrink: 0; }.sidebar-school { font-size: 10px; color: #555; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 4px; }.sidebar-nav { flex: 1; padding: 16px 12px; overflow-y: auto; }.nav-item { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 0; color: #888; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.15s; margin-bottom: 2px; text-decoration: none; letter-spacing: 0.5px; }.nav-item:hover { background: rgba(168,213,162,0.06); color: #F5F5F5; }.nav-item.active { background: transparent; color: var(--gold); box-shadow: none; border-left: 2px solid var(--gold); padding-left: 14px; }.nav-item svg { width: 18px; height: 18px; flex-shrink: 0; }.nav-section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #555; padding: 24px 16px 8px; }.sidebar-footer { padding: 16px; border-top: 1px solid #1A1A1A; }.sidebar-credit { color: #444; font-size: 10px; text-align: center; padding: 8px 0 0; letter-spacing: 1px; text-transform: uppercase; }.sidebar-credit a { color: #666; text-decoration: none; }.sidebar-credit a:hover { color: var(--gold); }.user-card { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 0; cursor: pointer; transition: background 0.15s; }.user-card:hover { background: rgba(168,213,162,0.06); }.user-avatar { width: 36px; height: 36px; border-radius: 0; background: var(--gold); display: flex; align-items: center; justify-content: center; color: #000; font-weight: 700; font-size: 14px; }.user-info { flex: 1; min-width: 0; }.user-name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }.user-id { font-size: 11px; color: #666; }/* Main content */.main { margin-left: var(--sidebar-width); flex: 1; min-height: 100vh; padding: 32px; position: relative; z-index: 1; }.page { display: none; }.page.active { display: block; }.page-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }.page-title { font-size: 24px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: 2px; text-transform: uppercase; }.page-subtitle { font-size: 12px; color: var(--text-secondary); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }.page-actions { display: flex; gap: 10px; align-items: center; }.view-toggle { display: flex; background: transparent; border-radius: 0; padding: 0; border: 1px solid var(--border); }.view-toggle button { padding: 8px 16px; border: none; border-radius: 0; font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; background: transparent; color: var(--text-secondary); transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }.view-toggle button.active { background: var(--gold); color: #000; box-shadow: none; }.marking-period-select { padding: 10px 36px 10px 14px; border: 1px solid var(--border); border-radius: 0; font-size: 13px; font-family: inherit; font-weight: 500; background: rgba(255,255,255,0.04); color: var(--text); cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; outline: none; }.marking-period-select:focus { border-color: var(--gold); }/* Grade cards */.grades-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }.grade-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 24px; box-shadow: none; border-left: 3px solid; transition: border-color 0.2s; cursor: pointer; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.1); border-right: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }.grade-card:hover { transform: none; box-shadow: none; border-left-width: 5px; }.grade-card::after { display: none; }.grade-card.grade-a { border-left-color: var(--grade-a); }.grade-card.grade-b { border-left-color: var(--grade-b); }.grade-card.grade-c { border-left-color: var(--grade-c); }.grade-card.grade-d { border-left-color: var(--grade-d); }.grade-card.grade-e { border-left-color: var(--grade-e); }.grade-card.grade-a::after, .grade-card.grade-b::after, .grade-card.grade-c::after, .grade-card.grade-d::after, .grade-card.grade-e::after { display: none; }.grade-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }.grade-card-course { font-size: 15px; font-weight: 700; line-height: 1.3; flex: 1; margin-right: 12px; font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.5px; }.grade-card-period { font-size: 11px; font-weight: 600; color: var(--text-secondary); background: rgba(255,255,255,0.05); padding: 3px 10px; border-radius: 0; white-space: nowrap; border: 1px solid var(--border); }.grade-card-teacher { font-size: 12px; color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }.grade-card-footer { display: flex; justify-content: space-between; align-items: flex-end; }.grade-card-percent { font-size: 24px; font-weight: 800; line-height: 1.2; }.grade-card.grade-a .grade-card-percent { color: var(--grade-a); }.grade-card.grade-b .grade-card-percent { color: var(--grade-b); }.grade-card.grade-c .grade-card-percent { color: var(--grade-c); }.grade-card.grade-d .grade-card-percent { color: var(--grade-d); }.grade-card.grade-e .grade-card-percent { color: var(--grade-e); }.grade-card-letter { font-size: 28px; font-weight: 900; opacity: 0.15; color: var(--gold); }.grade-card-semester { font-size: 11px; color: var(--text-secondary); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }/* Class detail */.class-detail-back { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--gold); cursor: pointer; margin-bottom: 20px; padding: 8px 0; border: none; background: none; font-family: inherit; text-transform: uppercase; letter-spacing: 1px; }.class-detail-back:hover { opacity: 0.8; }.class-detail-header { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 28px; box-shadow: none; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }.class-detail-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; font-family: 'Space Grotesk', sans-serif; letter-spacing: 1px; }.class-detail-teacher { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }.class-detail-grade { font-size: 22px; font-weight: 800; }.category-bars { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }.category-bar { border-radius: 0; padding: 10px 16px; font-size: 13px; font-weight: 600; color: white; position: relative; overflow: hidden; min-width: 60px; }.category-bar-bg { position: absolute; inset: 0; border-radius: 0; }.category-bar-text { position: relative; z-index: 1; }.class-detail-actions { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }.class-detail-table { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; box-shadow: none; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }.class-detail-table table { width: 100%; border-collapse: collapse; }.new-assignment-row { color: var(--grade-a); }.new-assignment-row input { width: 60px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 0; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; text-align: center; }.new-assignment-row input:focus { border-color: var(--gold); }.new-assignment-row select { padding: 4px 8px; border: 1px solid var(--border); border-radius: 0; font-size: 13px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; }.grades-table-wrap { display: none; background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; box-shadow: none; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }.grades-table-wrap.active { display: block; }.grades-grid.active { display: grid; }table { width: 100%; border-collapse: collapse; }th { text-align: left; padding: 14px 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-secondary); background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }td { padding: 16px 20px; font-size: 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }tr:last-child td { border-bottom: none; }tr:hover td { background: rgba(255,255,255,0.04); }.grade-badge { display: inline-flex; align-items: center; justify-content: center; padding: 4px 14px; border-radius: 0; font-weight: 700; font-size: 13px; }.grade-badge.a { background: var(--grade-a-bg); color: var(--grade-a); }.grade-badge.b { background: var(--grade-b-bg); color: var(--grade-b); }.grade-badge.c { background: var(--grade-c-bg); color: var(--grade-c); }.grade-badge.d { background: var(--grade-d-bg); color: var(--grade-d); }.grade-badge.e { background: var(--grade-e-bg); color: var(--grade-e); }/* Modal */.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: none; z-index: 1000; align-items: center; justify-content: center; }.modal-overlay.active { display: flex; }.modal { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; width: 600px; max-width: 92vw; max-height: 80vh; overflow-y: auto; box-shadow: none; border: 1px solid rgba(255,255,255,0.1); }.modal-header { padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(255,255,255,0.06); z-index: 1; }.modal-header h2 { font-size: 16px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; letter-spacing: 1px; text-transform: uppercase; }.modal-close { width: 36px; height: 36px; border: none; border-radius: 0; background: transparent; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 20px; transition: color 0.15s; }.modal-close:hover { background: transparent; color: var(--gold); }.modal-body { padding: 24px 28px; }.assignment-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }.assignment-row:last-child { border-bottom: none; }.assignment-name { font-size: 14px; font-weight: 500; flex: 1; }.assignment-score { font-size: 14px; font-weight: 700; text-align: right; min-width: 80px; }.assignment-category { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }/* Schedule & tables */.schedule-table-wrap { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; box-shadow: none; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }.schedule-period-badge { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 0; background: var(--gold); color: #000; font-weight: 700; font-size: 14px; }/* Attendance */.attendance-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }.stat-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 20px 24px; box-shadow: none; text-align: center; border: 1px solid rgba(255,255,255,0.1); }.stat-value { font-size: 32px; font-weight: 900; color: var(--gold); -webkit-text-fill-color: var(--gold); background: none; -webkit-background-clip: unset; background-clip: unset; }.stat-label { font-size: 11px; color: var(--text-secondary); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }.attendance-event { display: flex; align-items: center; gap: 16px; padding: 16px 20px; border-bottom: 1px solid var(--border); }.attendance-event:last-child { border-bottom: none; }.attendance-dot { width: 8px; height: 8px; border-radius: 0; flex-shrink: 0; }.attendance-dot.absent { background: var(--grade-e); }.attendance-dot.tardy { background: var(--grade-c); }.attendance-dot.excused { background: var(--grade-b); }.attendance-date { font-size: 14px; font-weight: 600; min-width: 100px; }.attendance-detail { font-size: 14px; color: var(--text-secondary); flex: 1; }.attendance-type { font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 0; text-transform: uppercase; letter-spacing: 0.5px; }.attendance-type.absent { background: var(--grade-e-bg); color: var(--grade-e); }.attendance-type.tardy { background: var(--grade-c-bg); color: var(--grade-c); }.attendance-type.excused { background: var(--grade-b-bg); color: var(--grade-b); }/* Documents */.doc-item { display: flex; align-items: center; gap: 16px; padding: 18px 24px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; }.doc-item:hover { background: rgba(168,213,162,0.04); }.doc-item:last-child { border-bottom: none; }.doc-icon { width: 44px; height: 44px; border-radius: 0; background: var(--gold); display: flex; align-items: center; justify-content: center; color: #000; }.doc-info { flex: 1; }.doc-name { font-size: 15px; font-weight: 600; }.doc-date { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }/* GPA */.gpa-display { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 32px; box-shadow: none; text-align: center; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); }.gpa-value { font-size: 64px; font-weight: 900; font-family: 'Space Grotesk', sans-serif; color: var(--gold); -webkit-text-fill-color: var(--gold); background: none; -webkit-background-clip: unset; background-clip: unset; line-height: 1; }.gpa-label { font-size: 12px; color: var(--text-secondary); margin-top: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }.gpa-row { display: grid; grid-template-columns: 2fr 1fr 1fr 48px; gap: 12px; align-items: center; margin-bottom: 12px; }.gpa-row input, .gpa-row select { padding: 12px 14px; border: 1px solid var(--border); border-radius: 0; font-size: 14px; font-family: inherit; background: rgba(255,255,255,0.04); color: var(--text); outline: none; }.gpa-row input:focus, .gpa-row select:focus { border-color: var(--gold); }.gpa-remove { width: 40px; height: 40px; border: none; border-radius: 0; background: var(--grade-e-bg); color: var(--grade-e); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; transition: background 0.15s; }.gpa-remove:hover { background: var(--grade-e); color: white; }.gpa-type-toggle { display: flex; gap: 8px; margin-bottom: 20px; justify-content: center; }.gpa-type-toggle button { padding: 8px 20px; border: 1px solid var(--border); border-radius: 0; background: transparent; color: var(--text-secondary); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px; }.gpa-type-toggle button.active { border-color: var(--gold); background: rgba(168,213,162,0.08); color: var(--gold); }/* Calculator */.calc-result { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 28px; box-shadow: none; text-align: center; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 40px; border: 1px solid rgba(255,255,255,0.1); }.calc-percent { font-size: 56px; font-weight: 900; line-height: 1; font-family: 'Space Grotesk', sans-serif; }.calc-letter { font-size: 56px; font-weight: 900; opacity: 0.2; color: var(--gold); }.calc-row { display: grid; grid-template-columns: 2fr 1fr 1fr 48px; gap: 12px; align-items: center; margin-bottom: 12px; }.calc-row input { padding: 12px 14px; border: 1px solid var(--border); border-radius: 0; font-size: 14px; font-family: inherit; background: rgba(255,255,255,0.04); color: var(--text); outline: none; }.calc-row input:focus { border-color: var(--gold); }/* Settings */.settings-section { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; box-shadow: none; padding: 28px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }.settings-section h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1.5px; }.setting-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }.setting-row:last-child { border-bottom: none; }.setting-label { font-size: 14px; font-weight: 500; }.setting-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }.toggle { position: relative; width: 48px; height: 26px; }.toggle input { opacity: 0; width: 0; height: 0; }.toggle-slider { position: absolute; inset: 0; background: var(--border); border-radius: 0; cursor: pointer; transition: background 0.3s; }.toggle-slider::before { content: ''; position: absolute; width: 20px; height: 20px; border-radius: 0; background: white; top: 3px; left: 3px; transition: transform 0.3s; box-shadow: none; }.toggle input:checked + .toggle-slider { background: var(--gold); }.toggle input:checked + .toggle-slider::before { transform: translateX(22px); }/* Spinner */.spinner-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: none; z-index: 2000; align-items: center; justify-content: center; }.spinner-overlay.active { display: flex; }.spinner { width: 48px; height: 48px; border: 3px solid rgba(168,213,162,0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }@keyframes spin { to { transform: rotate(360deg); } }.empty-state { text-align: center; padding: 60px 20px; color: var(--text-secondary); }.empty-state h3 { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px; }/* Mobile */.mobile-topbar { display: none; position: fixed; top: 0; left: 0; right: 0; height: 56px; background: #000; border-bottom: 1px solid #1A1A1A; z-index: 99; align-items: center; padding: 0 16px; }.mobile-topbar .hamburger { width: 40px; height: 40px; border: none; border-radius: 0; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }.hamburger span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 0; }.mobile-topbar .logo { font-size: 14px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: #F5F5F5; letter-spacing: 6px; text-transform: uppercase; -webkit-text-fill-color: #F5F5F5; background: none; -webkit-background-clip: unset; background-clip: unset; margin-left: 12px; }.sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99; }@media (max-width: 768px) {.mobile-topbar { display: flex; }:root { --topbar-height: 56px; }.sidebar { transform: translateX(-100%); z-index: 200; }.sidebar.open { transform: translateX(0); }.sidebar-overlay.open { display: block; }.main { margin-left: 0; padding: 72px 16px 24px; }.grades-grid { grid-template-columns: 1fr; }.gpa-row, .calc-row { grid-template-columns: 1fr 1fr; }.page-header { flex-direction: column; align-items: flex-start; }.ranked-grid { grid-template-columns: 1fr; }.dash-video-bg { left: 0; }}/* Ranked */.ranked-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }.ranked-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; padding: 24px; box-shadow: none; border: 1px solid rgba(255,255,255,0.1); }.ranked-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; letter-spacing: 1px; }.ranked-card h3 svg { width: 18px; height: 18px; color: var(--gold); }.ranked-stat { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }.ranked-stat:last-child { border-bottom: none; }.ranked-stat-label { font-size: 13px; color: var(--text-secondary); }.ranked-stat-value { font-size: 13px; font-weight: 700; }.ranked-bar-track { height: 4px; border-radius: 0; background: var(--border); overflow: hidden; margin-top: 6px; }.ranked-bar-fill { height: 100%; border-radius: 0; transition: width 0.6s ease; }.ranked-class-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }.ranked-class-row:last-child { border-bottom: none; }.ranked-class-rank { width: 28px; height: 28px; border-radius: 0; background: var(--gold); color: #000; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }.ranked-class-name { flex: 1; font-size: 13px; font-weight: 500; }.ranked-class-pct { font-size: 13px; font-weight: 700; }/* College */.college-search { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 0; font-size: 14px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; margin-bottom: 12px; }.college-search:focus { border-color: var(--gold); }.college-list { max-height: 220px; overflow-y: auto; margin-bottom: 16px; }.college-option { padding: 10px 14px; border-radius: 0; cursor: pointer; font-size: 14px; transition: background 0.15s; }.college-option:hover { background: rgba(168,213,162,0.06); }.college-option.selected { background: rgba(168,213,162,0.1); font-weight: 600; color: var(--gold); }.college-result { padding: 20px; background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; border: 1px solid rgba(255,255,255,0.1); }.college-meter { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }.college-meter-label { font-size: 12px; min-width: 100px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }.college-meter-track { flex: 1; height: 6px; border-radius: 0; background: var(--border); overflow: hidden; position: relative; }.college-meter-fill { height: 100%; border-radius: 0; transition: width 0.4s; }.college-meter-marker { position: absolute; top: -3px; width: 2px; height: 12px; background: var(--text); border-radius: 0; }.college-verdict { text-align: center; padding: 16px; border-radius: 0; margin-top: 12px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }.college-input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }.college-input-group { display: flex; flex-direction: column; gap: 4px; }.college-input-group label { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }.college-input-group input, .college-input-group select { padding: 10px 12px; border: 1px solid var(--border); border-radius: 0; font-size: 14px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; }.college-input-group input:focus, .college-input-group select:focus { border-color: var(--gold); }.ec-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: var(--bg); border-radius: 0; font-size: 13px; border: 1px solid var(--border); }.ec-tag .ec-remove { cursor: pointer; color: var(--text-secondary); font-weight: 700; }.ec-tag .ec-remove:hover { color: var(--grade-e); }.factor-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }.factor-card { padding: 12px; background: rgba(255,255,255,0.06); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 0; border: 1px solid rgba(255,255,255,0.1); }.factor-card .factor-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 4px; }.factor-card .factor-score { font-size: 22px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }@media(max-width:600px){ .college-input-grid{grid-template-columns:1fr;} .factor-breakdown{grid-template-columns:1fr;} .ec-slot{grid-template-columns:1fr!important;} }/* Dropdown option black text */select option { color: #000; background: #fff; }.marking-period-select option, .gpa-row select option, .new-assignment-row select option, .ec-slot-type option, .college-input-group select option { color: #000; background: #fff; }/* New feature highlight nav items */.nav-item-new { background: #A8D5A2 !important; color: #000 !important; border-left: none !important; padding-left: 16px !important; position: relative; }.nav-item-new:hover { background: #B8E0B3 !important; color: #000 !important; }.nav-item-new.active { background: #A8D5A2 !important; color: #000 !important; border-left: none !important; padding-left: 16px !important; }.nav-item-new svg { color: #000 !important; stroke: #000 !important; }.new-tag { font-size: 9px; font-weight: 800; background: #000; color: #A8D5A2; padding: 2px 5px; border-radius: 3px; margin-left: 6px; letter-spacing: 0.5px; vertical-align: middle; }/* Accordion */.accordion-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; }.accordion-header:hover { opacity: 0.85; }.accordion-chevron { transition: transform 0.3s; font-size: 18px; color: var(--text-secondary); }.accordion-chevron.open { transform: rotate(180deg); }.accordion-body { overflow: hidden; transition: max-height 0.35s ease; }.accordion-body.collapsed { max-height: 0 !important; overflow: hidden; }</style></head><body><div class="spinner-overlay" id="spinner"><div class="spinner"></div></div><div id="login-page"><video class="login-video-bg" autoplay muted loop playsinline><source src="login-bg.mp4" type="video/mp4"></video><div class="login-container"><img class="login-logo-diamond" src="diamond-logo.gif" width="64" height="64" alt="SchoolNoter"><div class="login-logo">SCHOOLNOTER</div><p class="login-subtitle">Your grades, elevated</p><div class="login-error" id="login-error"></div><form id="login-form" autocomplete="off" action="javascript:void(0)"><div class="form-group"><label>Student ID</label><input type="text" id="login-username" placeholder="e.g. 1234567" required></div><div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="Your MCPS password" required></div><div style="display:flex;align-items:center;gap:8px;margin-top:8px;margin-bottom:4px;"><input type="checkbox" id="remember-me" style="width:16px;height:16px;accent-color:var(--gold);cursor:pointer;"><label for="remember-me" style="font-size:12px;color:#888;cursor:pointer;letter-spacing:0.5px;">Remember Me</label></div><button type="submit" class="btn btn-primary" id="login-btn">Sign In</button></form><button class="btn btn-guest" onclick="enterGuestMode()">Continue as Guest</button></div></div><div class="mobile-topbar" id="mobile-topbar"><button class="hamburger" onclick="toggleSidebar()"><span></span><span></span><span></span></button><img src="diamond-logo.gif" width="24" height="24" alt="SchoolNoter" style="margin-left:8px;"><div class="logo">SCHOOLNOTER</div></div><div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div><div id="app"><div class="dash-video-bg"><video autoplay muted loop playsinline><source src="dash-bg-new.mp4" type="video/mp4"></video></div><aside class="sidebar" id="sidebar"><div class="sidebar-header"><img class="sidebar-logo-diamond" src="diamond-logo.gif" width="28" height="28" alt="SchoolNoter"><div><div class="sidebar-logo">SCHOOLNOTER</div><div class="sidebar-school">Montgomery County Public Schools</div></div></div><nav class="sidebar-nav"><a class="nav-item active" data-page="grades" onclick="navigate('grades')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Gradebook</a><div class="nav-item nav-item-new" data-page="opportunities" onclick="navigate('opportunities')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Opportunities<span class="new-tag">NEW</span></div><a class="nav-item nav-item-new" data-page="ranked" onclick="navigate('ranked')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>Ranked<span class="new-tag">AI</span></a><a class="nav-item" data-page="schedule" onclick="navigate('schedule')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Schedule</a><a class="nav-item" data-page="attendance" onclick="navigate('attendance')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Attendance</a><a class="nav-item" data-page="documents" onclick="navigate('documents')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Documents</a><a class="nav-item nav-item-new" data-page="puzzles" onclick="navigate('puzzles')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Brain Puzzles<span class="new-tag">BETA</span></a><a class="nav-item nav-item-new" data-page="gpa" onclick="navigate('gpa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>GPA Calculator<span class="new-tag">NEW</span></a><a class="nav-item" data-page="faq" onclick="navigate('faq')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a><div class="nav-section-label">Account</div><a class="nav-item" data-page="settings" onclick="navigate('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a><a class="nav-item" onclick="logout()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Log Out</a></nav><div class="sidebar-footer"><div class="user-card"><div class="user-avatar" id="user-avatar">?</div><div class="user-info"><div class="user-name" id="user-name">Student</div><div class="user-id" id="user-school">MCPS</div></div></div></div></aside><main class="main"><div class="page active" id="page-grades"><div class="page-header"><div><h1 class="page-title">Gradebook</h1><p class="page-subtitle" id="grades-subtitle">Your current grades across all classes</p></div><div class="page-actions"><select class="marking-period-select" id="mp-select" onchange="switchMarkingPeriod(this.value)"><option value="current">Current Marking Period</option></select><div class="view-toggle"><button class="active" onclick="setGradeView('card', this)">Cards</button><button onclick="setGradeView('table', this)">Table</button></div></div></div><div class="grades-grid active" id="grades-cards"></div><div class="grades-table-wrap" id="grades-table"><table><thead><tr><th>Period</th><th>Course</th><th>Teacher</th><th>Grade</th><th>Percent</th></tr></thead><tbody id="grades-table-body"></tbody></table></div></div><div class="page" id="page-class-detail"></div><div class="page" id="page-schedule"><div class="page-header"><div><h1 class="page-title">Schedule</h1><p class="page-subtitle">Your class schedule for today</p></div></div><div class="schedule-table-wrap"><table><thead><tr><th>Period</th><th>Time</th><th>Course</th><th>Room</th><th>Teacher</th></tr></thead><tbody id="schedule-body"></tbody></table></div></div><div class="page" id="page-attendance"><div class="page-header"><div><h1 class="page-title">Attendance</h1><p class="page-subtitle">Your attendance record this school year</p></div></div><div class="attendance-stats" id="attendance-stats"></div><div class="schedule-table-wrap"><div id="attendance-list"></div></div></div><div class="page" id="page-documents"><div class="page-header"><div><h1 class="page-title">Documents</h1><p class="page-subtitle">View and download your official school documents</p></div></div><div class="schedule-table-wrap"><div class="doc-list" id="doc-list"></div></div></div><div class="page" id="page-gpa"><div class="page-header"><div><h1 class="page-title">GPA Calculator</h1><p class="page-subtitle">Calculate your weighted or unweighted GPA</p></div></div><div class="gpa-display"><div class="gpa-value" id="gpa-value">0.00</div><div class="gpa-label" id="gpa-label">Unweighted GPA</div></div><div class="gpa-type-toggle"><button class="active" onclick="setGpaType('unweighted', this)">Unweighted</button><button onclick="setGpaType('weighted', this)">Weighted (MCPS)</button></div><div style="background:var(--bg-card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);border:1px solid var(--border);"><div class="gpa-row" style="margin-bottom:16px;"><span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-secondary)">Course</span><span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-secondary)">Grade</span><span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-secondary)">Level</span><span></span></div><div id="gpa-rows"></div><button class="btn btn-secondary" onclick="addGpaRow()" style="margin-top:12px;width:100%;">+ Add Course</button></div></div><div class="page" id="page-opportunities"><div class="page-header"><div><h1 class="page-title">Opportunities</h1><p class="page-subtitle">Internships, summer programs, and scholarships</p></div><div class="page-actions"><div class="view-toggle"><button class="active" onclick="setOpportunityTab('internships',this)">Internships</button><button onclick="setOpportunityTab('programs',this)">Summer Programs</button><button onclick="setOpportunityTab('scholarships',this)">Scholarships</button></div></div></div><div id="opp-filters" style="margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;"><select id="opp-grade-filter" class="marking-period-select" onchange="renderOpportunities()" style="min-width:140px;"><option value="all">All Grade Levels</option><option value="Freshmen">Freshmen</option><option value="Sophomores">Sophomores</option><option value="Juniors">Juniors</option><option value="Seniors">Seniors</option></select><input type="text" id="opp-search" placeholder="Search opportunities..." oninput="renderOpportunities()" style="flex:1;min-width:200px;padding:10px 14px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;background:var(--bg-card);color:var(--text);outline:none;"></div><div id="opp-content" style="display:grid;gap:12px;"></div><div id="opp-loading" style="text-align:center;padding:40px;color:var(--text-secondary);display:none;">Loading opportunities...</div></div><div class="page" id="page-ranked"></div><div class="page" id="page-puzzles"><div class="page-header"><div><h1 class="page-title">Brain Puzzles</h1><p class="page-subtitle">Daily Wordle — refreshed every day</p></div></div><div id="puzzle-container"></div></div><div class="page" id="page-faq"><div class="page-header"><div><h1 class="page-title">FAQ</h1><p class="page-subtitle">Frequently asked questions</p></div></div><div class="settings-section"><h3>How is my data used?</h3><div style="font-size:14px;line-height:1.7;color:var(--text-secondary);padding:4px 0;">SchoolNoter does <strong style="color:var(--text);">not</strong> store, collect, or log any of your data. Your Student ID and password are sent directly to the official StudentVUE servers through a secure proxy — we never see or save your credentials. All grade data lives only in your browser session and is wiped when you log out or close the tab.</div></div><div class="settings-section"><h3>Is my password safe?</h3><div style="font-size:14px;line-height:1.7;color:var(--text-secondary);padding:4px 0;">Yes. Your password is transmitted over HTTPS and is never stored on any server. The proxy forwards your credentials to MCPS StudentVUE and returns the response — it acts as a pass-through only. After login, a session token is used instead of your password.</div></div><div class="settings-section"><h3>What about the AI college checker?</h3><div style="font-size:14px;line-height:1.7;color:var(--text-secondary);padding:4px 0;">The College Readiness Checker compares your profile against real Common Data Set (CDS) statistics that colleges publish annually. All calculations run locally in your browser — no data is sent to any server for this feature.</div></div><div class="settings-section"><h3>Can my school see that I use SchoolNoter?</h3><div style="font-size:14px;line-height:1.7;color:var(--text-secondary);padding:4px 0;">SchoolNoter accesses the same StudentVUE system you'd normally use. Your school can see that a login occurred but cannot distinguish SchoolNoter from the official StudentVUE app or website.</div></div><div class="settings-section"><h3>Who built this?</h3><div style="font-size:14px;line-height:1.7;color:var(--text-secondary);padding:4px 0;">Bunked is not affiliated with or endorsed by MCPS or Edupoint (the company behind StudentVUE).</div></div></div><div class="page" id="page-settings"><div class="page-header"><div><h1 class="page-title">Settings</h1><p class="page-subtitle">Customize your SchoolNoter experience</p></div></div><div class="settings-section"><h3>Account</h3><div class="setting-row"><div><div class="setting-label">Student Name</div><div class="setting-desc" id="settings-name">-</div></div></div><div class="setting-row"><div><div class="setting-label">Student ID</div><div class="setting-desc" id="settings-id">-</div></div></div><div class="setting-row"><div><div class="setting-label">School</div><div class="setting-desc" id="settings-school">-</div></div></div><div class="setting-row"><div><div class="setting-label">Grade Level</div><div class="setting-desc" id="settings-grade">-</div></div></div></div><div class="settings-section"><h3>About</h3><div class="setting-row"><div><div class="setting-label">SchoolNoter v1.0.0</div><div class="setting-desc"></div></div></div></div></div></main></div><div class="modal-overlay" id="assignment-modal" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-header"><h2 id="modal-title">Assignments</h2><button class="modal-close" onclick="closeModal()">&times;</button></div><div class="modal-body" id="modal-body"></div></div></div><script>
+/* SchoolNoter - All Rights Reserved */
+(function(){
+  // Anti-devtools: detect open dev console
+  const _dt=new Image();Object.defineProperty(_dt,'id',{get:function(){document.documentElement.innerHTML='<h1 style="text-align:center;margin-top:20vh;font-family:sans-serif">Access Denied</h1>';throw new Error();}});
+  // Disable right-click context menu
+  document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
+  // Disable common keyboard shortcuts for viewing source / dev tools
+  document.addEventListener('keydown',function(e){
+    if(e.key==='F12')e.preventDefault();
+    if(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J'||e.key==='C'))e.preventDefault();
+    if(e.ctrlKey&&e.key==='u')e.preventDefault();
+    if(e.ctrlKey&&e.key==='s')e.preventDefault();
+  });
+  // Disable text selection and dragging
+  document.addEventListener('selectstart',function(e){if(e.target.tagName!=='INPUT'&&e.target.tagName!=='TEXTAREA')e.preventDefault();});
+  document.addEventListener('dragstart',function(e){e.preventDefault();});
+  // Periodic devtools detection via timing
+  setInterval(function(){var s=performance.now();console.profile();console.profileEnd();if(performance.now()-s>10){document.documentElement.innerHTML='<h1 style="text-align:center;margin-top:20vh;font-family:sans-serif">Access Denied</h1>';}},2000);
+  // Console log poisoning — override console methods to discourage snooping
+  var _c=console.log;console.log=console.warn=console.info=console.debug=function(){};
+  // Debugger trap
+  (function _trap(){try{(function(){return false;}).constructor('debugger')();}catch(e){}setTimeout(_trap,100);})();
+})();
+// Security: HTML entity escape to prevent XSS in dynamic content
+function esc(s){if(s==null)return'';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+// Security: auto-logout after 30 min of inactivity
+var _lastActivity=Date.now();
+document.addEventListener('click',function(){_lastActivity=Date.now();});
+document.addEventListener('keydown',function(){_lastActivity=Date.now();});
+setInterval(function(){if(state&&state.authToken&&(Date.now()-_lastActivity>30*60*1000)){state.authToken=null;state.password='';location.reload();}},60000);
+const _0x=['\x68\x74\x74\x70\x73\x3a\x2f\x2f','\x61\x63\x61\x64\x65\x6d\x69\x61\x2d\x73\x76\x75\x65\x2d\x70\x72\x6f\x78\x79','\x2e\x66\x6c\x79\x2e\x64\x65\x76','\x6d\x64\x2d\x6d\x63\x70\x73\x2d\x70\x73\x76','\x2e\x65\x64\x75\x70\x6f\x69\x6e\x74\x2e\x63\x6f\x6d'];
+const API_BASE=_0x[0]+_0x[1]+_0x[2];
+const DISTRICT=_0x[3]+_0x[4];
+let state={username:'',password:'',authToken:null,isGuest:false,studentInfo:null,gradebook:null,schedule:null,attendance:null,documents:null,semesterGrades:null,gpaType:'unweighted',currentPage:'grades'};
+async function fetchGrades(username,password){
+  const res=await fetch(API_BASE+'/grades',{headers:{'Authorization':'Basic '+btoa(username+':'+password),'Content-Type':'application/json','District':DISTRICT}});
+  if(!res.ok){const t=await res.text();throw new Error(t||'Failed to fetch grades (HTTP '+res.status+')');}
+  const data=await res.json();
+  const token=res.headers.get('Set-Token');
+  if(token)state.authToken=token;
+  return data;
+}
+async function fetchGradesByPeriod(token,periodIndex){
+  const res=await fetch(API_BASE+'/grades?report_period='+periodIndex,{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json','District':DISTRICT}});
+  if(!res.ok)return null;
+  return await res.json();
+}
+async function fetchStudent(token){
+  const res=await fetch(API_BASE+'/student',{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}});
+  if(!res.ok)return null;
+  return await res.json();
+}
+async function fetchPhoto(token){
+  try{const res=await fetch(API_BASE+'/photo',{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}});
+  if(!res.ok)return null;
+  const blob=await res.blob();
+  return new Promise(resolve=>{const r=new FileReader();r.onloadend=()=>resolve(r.result);r.readAsDataURL(blob);});}catch{return null;}
+}
+async function fetchAttendance(token){
+  try{
+    const res=await fetch(API_BASE+'/attendance',{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}});
+    if(!res.ok)return null;
+    return await res.json();
+  }catch{return null;}
+}
+async function fetchDocuments(token){
+  try{
+    const res=await fetch(API_BASE+'/documents',{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'}});
+    if(!res.ok)return null;
+    return await res.json();
+  }catch{return null;}
+}
+async function fetchSchedule(token){
+  try{
+    const res=await fetch(API_BASE+'/schedule',{headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json','District':DISTRICT}});
+    if(!res.ok)return null;
+    return await res.json();
+  }catch{return null;}
+}
+async function fetchSemesterGrades(token,reportingPeriods,currentPeriod){
+  try{
+    // Find all MP indices by name
+    const mpIndices={1:-1,2:-1,3:-1,4:-1};
+    // Strict match first (exact names like "MP1", "MP2 Interim", etc.)
+    reportingPeriods.forEach((rp,idx)=>{
+      const n=(rp.name||'').toUpperCase().replace(/\s+/g,'');
+      for(let q=1;q<=4;q++){
+        if(n==='MP'+q||n==='MP'+q+'INTERIM'||n==='Q'+q)mpIndices[q]=idx;
+      }
+    });
+    // Fallback: looser matching
+    reportingPeriods.forEach((rp,idx)=>{
+      const n=(rp.name||'').toUpperCase();
+      for(let q=1;q<=4;q++){
+        if(mpIndices[q]===-1&&(n.includes('MP'+q)||n.includes('MP '+q)||n.includes('Q'+q)))mpIndices[q]=idx;
+      }
+    });
+    // Determine which semester from current period
+    let semNum=2; // default to 2nd semester
+    let qA=3,qB=4; // quarter pair
+    if(currentPeriod!=null){
+      const cpName=(reportingPeriods[currentPeriod]?.name||'').toUpperCase();
+      if(cpName.includes('MP1')||cpName.includes('MP 1')||cpName.includes('Q1')||cpName.includes('MP2')||cpName.includes('MP 2')||cpName.includes('Q2')){
+        semNum=1;qA=1;qB=2;
+      }
+    }
+    const qAIdx=mpIndices[qA],qBIdx=mpIndices[qB];
+    if(qAIdx===-1&&qBIdx===-1)return null;
+    // Fetch both quarter grades
+    const fetches=[];
+    if(qAIdx!==-1)fetches.push(fetchGradesByPeriod(token,qAIdx));else fetches.push(Promise.resolve(null));
+    if(qBIdx!==-1)fetches.push(fetchGradesByPeriod(token,qBIdx));else fetches.push(Promise.resolve(null));
+    const[qARes,qBRes]=await Promise.allSettled(fetches);
+    const qAData=qARes.status==='fulfilled'?qARes.value:null;
+    const qBData=qBRes.status==='fulfilled'?qBRes.value:null;
+    if(!qAData&&!qBData)return null;
+    const qAClasses=qAData?.classes||[];
+    const qBClasses=qBData?.classes||[];
+    const count=Math.max(qAClasses.length,qBClasses.length);
+    if(count===0)return null;
+    const semGrades=[];
+    const qALabel='MP'+qA,qBLabel='MP'+qB;
+    for(let i=0;i<count;i++){
+      const aPct=qAClasses[i]?.grade??null;
+      const bPct=qBClasses[i]?.grade??null;
+      const aLetter=qAClasses[i]?.letter_grade||getLetterFromPct(aPct);
+      const bLetter=qBClasses[i]?.letter_grade||getLetterFromPct(bPct);
+      let semPct=null,semLetter='?';
+      if(aPct!=null&&bPct!=null){semPct=Math.round((aPct+bPct)/2*100)/100;semLetter=getLetterFromPct(semPct);}
+      else if(aPct!=null){semPct=Math.round(aPct*100)/100;semLetter=aLetter;}
+      else if(bPct!=null){semPct=Math.round(bPct*100)/100;semLetter=bLetter;}
+      semGrades.push({
+        qAPct:aPct!=null?Math.round(aPct*100)/100:null,qALetter:aLetter,qALabel,
+        qBPct:bPct!=null?Math.round(bPct*100)/100:null,qBLetter:bLetter,qBLabel,
+        semPct,semLetter,semNum,
+        className:(qBClasses[i]?.name||qAClasses[i]?.name||'')
+      });
+    }
+    return semGrades;
+  }catch(e){console.error('Semester grades error:',e);return null;}
+}
+async function downloadDocument(gu,fileName){
+  if(!state.authToken)return;
+  try{
+    const res=await fetch(API_BASE+'/document?gu='+encodeURIComponent(gu),{headers:{'Authorization':'Bearer '+state.authToken}});
+    if(!res.ok)throw new Error('Download failed');
+    const blob=await res.blob();
+    const url=window.URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download=fileName;document.body.appendChild(a);a.click();
+    window.URL.revokeObjectURL(url);document.body.removeChild(a);
+  }catch(e){console.error('Document download error:',e);}
+}
+function convertGrades(data){
+  const courses=[];
+  if(data.classes){data.classes.forEach((c,i)=>{
+    const letterGrade=c.letter_grade||getLetterFromPct(c.grade);
+    const assignments=(c.assignments||[]).map(a=>({name:a.name||'',category:a.kind||a.type||'',score:a.points_earned!=null&&a.points_possible!=null?a.points_earned+'/'+a.points_possible:'',points:a.points_earned!=null&&a.points_possible!=null?a.points_earned+' / '+a.points_possible:'',date:a.date||'',notes:a.notes||''}));
+    courses.push({period:String(i+1),title:c.name||'',teacher:c.teacher||'',teacherEmail:'',room:c.room||'',marks:[{name:data.report_period||'Current',score:letterGrade,rawScore:c.grade!=null?String(Math.round(c.grade*100)/100):'',assignments}]});
+  });}
+  const reportingPeriods=(data.reporting_periods||[]).map(rp=>({name:rp.name||rp,startDate:rp.start_date||'',endDate:rp.end_date||''}));
+  const currentPeriod=data.report_period!=null?data.report_period:null;
+  return{courses,reportingPeriods,currentPeriod};
+}
+function getLetterFromPct(pct){if(pct==null)return'?';if(pct>=89.5)return'A';if(pct>=80)return'B';if(pct>=70)return'C';if(pct>=60)return'D';return'E';}
+function deriveSchedule(gradebook){return gradebook.courses.map(c=>({period:c.period,courseName:c.title,teacher:c.teacher,teacherEmail:c.teacherEmail||'',room:c.room||''}));}
+// Remember Me: restore saved username only (password never stored)
+(function(){try{var saved=localStorage.getItem('bunked-remember');if(saved){var d=JSON.parse(saved);if(d.u)document.getElementById('login-username').value=d.u;document.getElementById('remember-me').checked=true;}}catch(e){}})();
+document.getElementById('login-form').addEventListener('submit',async(e)=>{e.preventDefault();const errEl=document.getElementById('login-error');errEl.classList.remove('show');state.username=document.getElementById('login-username').value.trim();state.password=document.getElementById('login-password').value;state.isGuest=false;
+// Remember Me: save username only (never store password)
+try{if(document.getElementById('remember-me').checked){localStorage.setItem('bunked-remember',JSON.stringify({u:state.username}));}else{localStorage.removeItem('bunked-remember');}}catch(e){}
+showSpinner();try{
+  const gradesData=await fetchGrades(state.username,state.password);
+  state.gradebook=convertGrades(gradesData);
+  state.schedule=deriveSchedule(state.gradebook);
+  state.attendance={events:[],excused:0,unexcused:0,tardies:0,total:0};
+  state.documents=[];
+  if(state.authToken){
+    const[studentData,photoData,attendanceData,documentsData,scheduleData]=await Promise.allSettled([fetchStudent(state.authToken),fetchPhoto(state.authToken),fetchAttendance(state.authToken),fetchDocuments(state.authToken),fetchSchedule(state.authToken)]);
+    const sd=studentData.status==='fulfilled'?studentData.value:null;
+    state.studentInfo={name:sd?.name||state.username,id:sd?.id||state.username,school:'MCPS',grade:sd?.grade||''};
+    if(photoData.status==='fulfilled'&&photoData.value){state.studentPhoto=photoData.value;}
+    if(attendanceData.status==='fulfilled'&&attendanceData.value){
+  const att=attendanceData.value;
+  const events=[];let excused=0,unexcused=0,tardies=0;
+  if(att.absences){att.absences.forEach(a=>{
+    const periods=(a.periods||[]).filter(p=>p.name!=='Homeroom'&&p.name!=='Lunch');
+    const hasAbsent=periods.some(p=>p.absent);
+    const hasTardy=periods.some(p=>p.tardy);
+    const reason=periods.map(p=>p.reason||'').find(r=>r)||'';
+    const type=hasTardy?'tardy':hasAbsent?(reason.toLowerCase().includes('excused')?'excused':'absent'):'excused';
+    if(type==='tardy')tardies++;else if(type==='excused')excused++;else unexcused++;
+    events.push({date:a.date||'',reason:reason,note:'',type:type,periods:periods.map(p=>({period:p.period||'',course:p.name||''}))});
+  });}
+  state.attendance={events,excused,unexcused,tardies,total:events.length};
+}
+    if(documentsData.status==='fulfilled'&&documentsData.value){
+      state.documents=documentsData.value.map(d=>({name:d.name||d.file_name||'Document',fileName:d.file_name||d.name||'Document',date:d.date||'',gu:d.gu||''}));
+    }
+    if(scheduleData.status==='fulfilled'&&scheduleData.value){
+      const sd=scheduleData.value;
+      const sched=sd.schedules&&sd.schedules.length>0?sd.schedules[0]:sd;
+      if(sched.classes&&sched.classes.length>0){
+        state.schedule=sched.classes.map(c=>({period:String(c.period||''),courseName:c.name||'',teacher:c.teacher||'',room:c.room||'',startTime:c.start_time||'',endTime:c.end_time||''}));
+      }
+    }
+  }else{state.studentInfo={name:state.username,id:state.username,school:'MCPS',grade:''};}
+  enterApp();
+  // Fetch semester grades in background (non-blocking)
+  if(state.authToken&&state.gradebook&&state.gradebook.reportingPeriods.length>0){
+    fetchSemesterGrades(state.authToken,state.gradebook.reportingPeriods,state.gradebook.currentPeriod).then(sg=>{
+      if(sg){state.semesterGrades=sg;renderGrades();if(state.currentPage==='class-detail'&&state.currentCourseIdx!=null)showClassDetail(state.currentCourseIdx);}
+    });
+  }
+}catch(err){errEl.textContent=err.message||'Failed to connect. Please try again.';errEl.classList.add('show');}hideSpinner();});
+function enterGuestMode(){state.isGuest=true;state.username='Guest';state.studentInfo={name:'Guest Student',id:'N/A',school:'MCPS Demo',grade:'-'};state.gradebook=generateDemoGrades();state.schedule=generateDemoSchedule();state.attendance={total:180,absences:[],excused:0,unexcused:0,tardies:0,events:[]};state.documents=[];state.semesterGrades=generateDemoSemesterGrades();enterApp();}
+function generateDemoSemesterGrades(){return[
+  {qAPct:92.1,qALetter:'A',qALabel:'MP3',qBPct:94.5,qBLetter:'A',qBLabel:'MP4',semPct:93.3,semLetter:'A',semNum:2,className:'AP English Language'},
+  {qAPct:85.8,qALetter:'B',qALabel:'MP3',qBPct:87.2,qBLetter:'B',qBLabel:'MP4',semPct:86.5,semLetter:'B',semNum:2,className:'AP Calculus BC'},
+  {qAPct:94.2,qALetter:'A',qALabel:'MP3',qBPct:96.0,qBLetter:'A',qBLabel:'MP4',semPct:95.1,semLetter:'A',semNum:2,className:'AP US History'},
+  {qAPct:79.5,qALetter:'C',qALabel:'MP3',qBPct:76.3,qBLetter:'C',qBLabel:'MP4',semPct:77.9,semLetter:'C',semNum:2,className:'Hon Chemistry B'},
+  {qAPct:91.3,qALetter:'A',qALabel:'MP3',qBPct:89.1,qBLetter:'B',qBLabel:'MP4',semPct:90.2,semLetter:'A',semNum:2,className:'Hon Spanish 4B'},
+  {qAPct:97.1,qALetter:'A',qALabel:'MP3',qBPct:98.4,qBLetter:'A',qBLabel:'MP4',semPct:97.75,semLetter:'A',semNum:2,className:'AP Computer Science A'},
+  {qAPct:71.4,qALetter:'C',qALabel:'MP3',qBPct:62.8,qBLetter:'D',qBLabel:'MP4',semPct:67.1,semLetter:'D',semNum:2,className:'Hon Precalculus B'}
+];}
+function enterApp(){document.getElementById('login-page').style.display='none';document.getElementById('app').classList.add('active');const info=state.studentInfo;document.getElementById('user-name').textContent=info.name||'Student';document.getElementById('user-school').textContent=info.school||'MCPS';const avatarEl=document.getElementById('user-avatar');if(state.studentPhoto){avatarEl.innerHTML='<img src="'+state.studentPhoto+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">';}else{avatarEl.textContent=(info.name||'S')[0].toUpperCase();}document.getElementById('settings-name').textContent=info.name||'-';document.getElementById('settings-id').textContent=info.id||'-';document.getElementById('settings-school').textContent=info.school||'-';document.getElementById('settings-grade').textContent=info.grade||'-';
+  const mpSelect=document.getElementById('mp-select');if(mpSelect&&state.gradebook&&state.gradebook.reportingPeriods.length>0){const cp=state.gradebook.currentPeriod;mpSelect.innerHTML=state.gradebook.reportingPeriods.map((rp,idx)=>'<option value="'+idx+'"'+(idx===cp?' selected':'')+'>'+rp.name+'</option>').join('');}
+  renderGrades();renderSchedule();renderAttendance();renderDocuments();populateGpaFromGrades();navigate('grades');}
+function logout(){state={username:'',password:'',authToken:null,isGuest:false,studentInfo:null,studentPhoto:null,gradebook:null,schedule:null,attendance:null,documents:null,semesterGrades:null,gpaType:'unweighted',currentPage:'grades'};document.getElementById('app').classList.remove('active');document.getElementById('login-page').style.display='flex';
+// If Remember Me is unchecked, clear saved username; if checked, keep it
+try{if(!document.getElementById('remember-me').checked){document.getElementById('login-username').value='';document.getElementById('login-password').value='';localStorage.removeItem('bunked-remember');}else{var saved=localStorage.getItem('bunked-remember');if(saved){var d=JSON.parse(saved);document.getElementById('login-username').value=d.u||'';}document.getElementById('login-password').value='';}}catch(e){document.getElementById('login-username').value='';document.getElementById('login-password').value='';}
+document.getElementById('login-error').classList.remove('show');}
+/* data layer: REST JSON API */
+function generateDemoGrades(){const courses=[{period:'1',title:'AP English Language',teacher:'Johnson, Sarah K.',room:'1204',marks:[{name:'MP4',score:'A',rawScore:'94.5',assignments:[{name:'Rhetorical Analysis Essay',category:'Writing',score:'92/100',points:'92 / 100',date:'04/28/2026'},{name:'Synthesis Essay',category:'Writing',score:'95/100',points:'95 / 100',date:'04/15/2026'},{name:'Multiple Choice Practice',category:'Tests',score:'88/100',points:'88 / 100',date:'04/10/2026'},{name:'Vocab Unit 12',category:'Homework',score:'100/100',points:'100 / 100',date:'04/05/2026'}]}]},{period:'2',title:'AP Calculus BC',teacher:'Chen, Michael R.',room:'2301',marks:[{name:'MP4',score:'B',rawScore:'87.2',assignments:[{name:'Integration by Parts Test',category:'Tests',score:'84/100',points:'84 / 100',date:'04/25/2026'},{name:'Series Convergence Quiz',category:'Quizzes',score:'90/100',points:'90 / 100',date:'04/18/2026'},{name:'Homework Set 14',category:'Homework',score:'95/100',points:'95 / 100',date:'04/12/2026'}]}]},{period:'3',title:'AP US History',teacher:'Martinez, David L.',room:'1727',marks:[{name:'MP4',score:'A',rawScore:'96.0',assignments:[{name:'WWII DBQ Essay',category:'Writing',score:'97/100',points:'97 / 100',date:'04/22/2026'},{name:'Chapter 28 Test',category:'Tests',score:'94/100',points:'94 / 100',date:'04/14/2026'},{name:'Primary Source Analysis',category:'Homework',score:'98/100',points:'98 / 100',date:'04/08/2026'}]}]},{period:'4',title:'Hon Chemistry B',teacher:'Adah, Mary A.',room:'2502',marks:[{name:'MP4',score:'C',rawScore:'76.3',assignments:[{name:'Acid-Base Titration Lab',category:'Labs',score:'82/100',points:'82 / 100',date:'04/26/2026'},{name:'Equilibrium Test',category:'Tests',score:'68/100',points:'68 / 100',date:'04/20/2026'},{name:'Homework Ch. 16',category:'Homework',score:'90/100',points:'90 / 100',date:'04/11/2026'}]}]},{period:'5',title:'Hon Spanish 4B',teacher:'Villavicencio, ChrissyAnn',room:'2303',marks:[{name:'MP4',score:'B',rawScore:'89.1',assignments:[{name:'Oral Presentation',category:'Speaking',score:'92/100',points:'92 / 100',date:'04/24/2026'},{name:'Subjunctive Exam',category:'Tests',score:'85/100',points:'85 / 100',date:'04/17/2026'},{name:'Composicion 6',category:'Writing',score:'91/100',points:'91 / 100',date:'04/09/2026'}]}]},{period:'6',title:'AP Computer Science A',teacher:'Estep, Mark R.',room:'2702',marks:[{name:'MP4',score:'A',rawScore:'98.4',assignments:[{name:'ArrayList Project',category:'Projects',score:'100/100',points:'100 / 100',date:'04/27/2026'},{name:'Recursion Test',category:'Tests',score:'96/100',points:'96 / 100',date:'04/19/2026'},{name:'FRQ Practice Set',category:'Homework',score:'100/100',points:'100 / 100',date:'04/07/2026'}]}]},{period:'7',title:'Hon Precalculus B',teacher:'Conyer, Nathan K.',room:'2627',marks:[{name:'MP4',score:'D',rawScore:'62.8',assignments:[{name:'Polar Coordinates Test',category:'Tests',score:'55/100',points:'55 / 100',date:'04/23/2026'},{name:'Sequences Quiz',category:'Quizzes',score:'70/100',points:'70 / 100',date:'04/16/2026'},{name:'Homework 7.3-7.5',category:'Homework',score:'85/100',points:'85 / 100',date:'04/06/2026'}]}]}];return{courses,reportingPeriods:[{name:'MP4 Interim',startDate:'03/25/2026',endDate:'06/12/2026'}]};}
+function generateDemoSchedule(){return[{period:'1',courseName:'AP English Language',teacher:'Johnson, Sarah K.',room:'1204'},{period:'2',courseName:'AP Calculus BC',teacher:'Chen, Michael R.',room:'2301'},{period:'3',courseName:'AP US History',teacher:'Martinez, David L.',room:'1727'},{period:'4',courseName:'Hon Chemistry B',teacher:'Adah, Mary A.',room:'2502'},{period:'5',courseName:'Hon Spanish 4B',teacher:'Villavicencio, ChrissyAnn',room:'2303'},{period:'6',courseName:'AP Computer Science A',teacher:'Estep, Mark R.',room:'2702'},{period:'7',courseName:'Hon Precalculus B',teacher:'Conyer, Nathan K.',room:'2627'}];}
+function getGradeClass(letter){if(!letter)return'grade-e';const l=letter.charAt(0).toUpperCase();if(l==='A')return'grade-a';if(l==='B')return'grade-b';if(l==='C')return'grade-c';if(l==='D')return'grade-d';return'grade-e';}
+function getGradeBadgeClass(letter){if(!letter)return'e';const l=letter.charAt(0).toUpperCase();return l==='A'?'a':l==='B'?'b':l==='C'?'c':l==='D'?'d':'e';}
+function getCategoryBreakdown(assignments){const cats={};assignments.forEach(a=>{const cat=a.category||'Uncategorized';if(!cats[cat])cats[cat]={earned:0,possible:0};const parts=(a.score||'').split('/');if(parts.length===2){const e=parseFloat(parts[0]),p=parseFloat(parts[1]);if(!isNaN(e)&&!isNaN(p)){cats[cat].earned+=e;cats[cat].possible+=p;}}});return Object.entries(cats).map(([name,v])=>({name,earned:v.earned,possible:v.possible,pct:v.possible>0?Math.round(v.earned/v.possible*10000)/100:0}));}
+function getGradeColor(letter){const l=(letter||'E').charAt(0).toUpperCase();return l==='A'?'var(--grade-a)':l==='B'?'var(--grade-b)':l==='C'?'var(--grade-c)':l==='D'?'var(--grade-d)':'var(--grade-e)';}
+function renderGrades(){const cardsEl=document.getElementById('grades-cards');const tableEl=document.getElementById('grades-table-body');if(!state.gradebook)return;const{courses}=state.gradebook;cardsEl.innerHTML=courses.map((c,i)=>{const mark=c.marks[0];const letter=mark?mark.score:'?';const pct=mark?mark.rawScore:'?';const cls=getGradeClass(letter);const sg=state.semesterGrades&&state.semesterGrades[i];const semLabel=sg?(sg.semNum===1?'1st':'2nd')+' Semester':'';const semesterLine=sg&&sg.semPct!=null?'<div class="grade-card-semester" style="color:'+getGradeColor(sg.semLetter)+'">'+semLabel+', '+sg.semLetter+' ('+sg.semPct+'%)</div><div style="margin-top:6px;height:6px;border-radius:3px;background:var(--border);overflow:hidden;"><div style="height:100%;width:'+Math.min(sg.semPct,100)+'%;border-radius:3px;background:'+getGradeColor(sg.semLetter)+';"></div></div>':'';return`<div class="grade-card ${cls}" onclick="showClassDetail(${i})"><div class="grade-card-header"><div class="grade-card-course">${c.period} - ${c.title}</div></div><div class="grade-card-teacher">${c.teacher}</div><div class="grade-card-footer"><div><div class="grade-card-percent">${letter} (${pct}%)</div>${semesterLine}</div><button class="btn btn-secondary" style="padding:8px 20px;font-size:13px;background:var(--gradient-hot);color:#000;border:none;font-weight:700;" onclick="event.stopPropagation();showClassDetail(${i})">View</button></div></div>`;}).join('');tableEl.innerHTML=courses.map((c,i)=>{const mark=c.marks[0];const letter=mark?mark.score:'?';const pct=mark?mark.rawScore:'?';const badge=getGradeBadgeClass(letter);const sg=state.semesterGrades&&state.semesterGrades[i];const semCol=sg&&sg.semPct!=null?'<span style="font-size:12px;color:var(--text-secondary);margin-left:8px;">Sem: '+sg.semLetter+' ('+sg.semPct+'%)</span>':'';return`<tr onclick="showClassDetail(${i})" style="cursor:pointer"><td><span class="schedule-period-badge">${c.period}</span></td><td style="font-weight:600">${c.title}</td><td>${c.teacher}</td><td><span class="grade-badge ${badge}">${letter}</span></td><td style="font-weight:700">${pct}%${semCol}</td></tr>`;}).join('');}
+function renderSchedule(){const body=document.getElementById('schedule-body');if(!state.schedule)return;const defaultTimes=['7:45 AM - 8:35 AM','8:40 AM - 9:25 AM','9:30 AM - 10:15 AM','10:20 AM - 11:05 AM','12:05 PM - 12:50 PM','12:55 PM - 1:40 PM','1:45 PM - 2:30 PM','2:35 PM - 3:15 PM'];body.innerHTML=state.schedule.map((s,i)=>{const time=(s.startTime&&s.endTime)?s.startTime+' - '+s.endTime:(defaultTimes[i]||'');return`<tr><td><span class="schedule-period-badge">${s.period}</span></td><td>${time}</td><td style="font-weight:600">${s.courseName}</td><td>${s.room}</td><td>${s.teacher}</td></tr>`;}).join('');}
+function renderAttendance(){const statsEl=document.getElementById('attendance-stats');const listEl=document.getElementById('attendance-list');if(!state.attendance)return;const a=state.attendance;statsEl.innerHTML=`<div class="stat-card"><div class="stat-value">${a.events.length}</div><div class="stat-label">Total Events</div></div><div class="stat-card"><div class="stat-value">${a.excused}</div><div class="stat-label">Excused</div></div><div class="stat-card"><div class="stat-value">${a.unexcused}</div><div class="stat-label">Unexcused</div></div><div class="stat-card"><div class="stat-value">${a.tardies}</div><div class="stat-label">Tardies</div></div>`;if(a.events.length===0){listEl.innerHTML='<div class="empty-state" style="padding:40px"><h3>Perfect Attendance!</h3><p style="color:var(--text-secondary)">No absences or tardies recorded.</p></div>';return;}listEl.innerHTML=a.events.map(e=>`<div class="attendance-event"><div class="attendance-dot ${e.type}"></div><div class="attendance-date">${e.date}</div><div class="attendance-detail">${e.reason||'No reason provided'}</div><span class="attendance-type ${e.type}">${e.type.charAt(0).toUpperCase()+e.type.slice(1)}</span></div>`).join('');}
+function renderDocuments(){const listEl=document.getElementById('doc-list');if(!state.documents||state.documents.length===0){listEl.innerHTML='<div class="empty-state" style="padding:40px"><h3>No Documents</h3><p style="color:var(--text-secondary)">No documents are available at this time.</p></div>';return;}listEl.innerHTML=state.documents.map(d=>`<div class="doc-item" style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:16px;"><div class="doc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="doc-info"><div class="doc-name">${d.name}</div><div class="doc-date">${d.date||''}</div></div></div>${d.gu?'<button class="btn btn-secondary" style="padding:8px 16px;font-size:13px;" onclick="downloadDocument(\''+d.gu+'\','+'\''+( d.fileName||d.name).replace(/'/g,"\\'")+'\')">Download</button>':''}</div>`).join('');}
+function showClassDetail(courseIdx){
+  state.currentCourseIdx=courseIdx;
+  const course=state.gradebook.courses[courseIdx];
+  const mark=course.marks[0];if(!mark)return;
+  const pct=mark.rawScore||'?';
+  const letter=mark.score||'?';
+  const gradeColor=getGradeColor(letter);
+  const cats=getCategoryBreakdown(mark.assignments);
+  const mpName=state.gradebook.reportingPeriods&&state.gradebook.currentPeriod!=null?state.gradebook.reportingPeriods[state.gradebook.currentPeriod]?.name||'Current':'Current';
+  // Get unique categories for the what-if dropdown
+  const catNames=[...new Set(mark.assignments.map(a=>a.category||'Uncategorized'))];
+  const catOptions=catNames.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+
+  const sg=state.semesterGrades&&state.semesterGrades[courseIdx];
+
+  let html='<button class="class-detail-back" onclick="navigate(\'grades\')">&larr; Back to Gradebook</button>';
+  // Header card with grade + category bars
+  html+='<div class="class-detail-header"><div class="class-detail-title">'+course.title+'</div><div class="class-detail-teacher">'+course.teacher+'</div><div class="class-detail-grade" style="color:'+gradeColor+'">'+letter+' ('+pct+'%)</div>';
+  // Category bars
+  html+='<div class="category-bars">';
+  // Semester grade bar — wrapped with ID for dynamic updates
+  html+='<div id="detail-sem-bar">';
+  if(sg&&sg.semPct!=null){
+    const semColor=getGradeColor(sg.semLetter);
+    const semLabel2=((sg.semNum===1?'1st':'2nd')+' Semester');
+    html+='<div style="margin-top:4px;"><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px;"><span>'+semLabel2+' ('+sg.semPct+'%)</span><span>'+sg.semLetter+'</span></div><div style="height:10px;border-radius:5px;background:var(--border);overflow:hidden;"><div style="height:100%;width:'+Math.min(sg.semPct,100)+'%;border-radius:5px;background:'+semColor+';transition:width 0.5s;"></div></div></div>';
+  }
+  html+='</div>';
+  // Category bars — wrapped with ID for dynamic updates
+  html+='<div id="detail-cat-bars">';
+  if(cats.length>0){
+    cats.forEach(cat=>{
+      const barWidth=Math.max(15,cat.pct);
+      const catLetter=getLetterFromPct(cat.pct);
+      const catColor=getGradeColor(catLetter);
+      html+='<div class="category-bar" style="width:'+barWidth+'%"><div class="category-bar-bg" style="background:'+catColor+';opacity:0.7;"></div><div class="category-bar-text">'+cat.name+' ('+cat.pct+'%) - '+cat.earned+'/'+cat.possible+'</div></div>';
+    });
+  }
+  html+='</div>';
+  html+='</div>';
+  // Quarter breakdown badges
+  if(sg&&(sg.qAPct!=null||sg.qBPct!=null)){
+    html+='<div style="display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;">';
+    if(sg.qAPct!=null)html+='<div style="text-align:center;"><div style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:4px;">'+sg.qALabel+'</div><div class="grade-badge '+getGradeBadgeClass(sg.qALetter)+'" style="font-size:14px;padding:6px 16px;">'+sg.qALetter+' ('+sg.qAPct+'%)</div></div>';
+    if(sg.qBPct!=null)html+='<div style="text-align:center;"><div style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:4px;">'+sg.qBLabel+'</div><div class="grade-badge '+getGradeBadgeClass(sg.qBLetter)+'" style="font-size:14px;padding:6px 16px;">'+sg.qBLetter+' ('+sg.qBPct+'%)</div></div>';
+    html+='</div>';
+  }
+  html+='</div>';
+
+  // MP selector row + add assignment button
+  html+='<div class="class-detail-actions" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">';
+  if(state.gradebook.reportingPeriods&&state.gradebook.reportingPeriods.length>0){
+    const cp=state.gradebook.currentPeriod;
+    html+='<select class="marking-period-select" onchange="switchMarkingPeriodAndRefresh(this.value,'+courseIdx+')">';
+    state.gradebook.reportingPeriods.forEach((rp,idx)=>{html+='<option value="'+idx+'"'+(idx===cp?' selected':'')+'>'+rp.name+'</option>';});
+    html+='</select>';
+  }
+  html+='<button onclick="addWhatIfRow('+courseIdx+')" style="padding:8px 16px;border-radius:var(--radius);background:var(--primary);color:#000;border:none;cursor:pointer;font-weight:700;font-size:13px;">+ Add Assignment</button>';
+  html+='<button onclick="showClassDetail('+courseIdx+')" style="padding:8px 16px;border-radius:var(--radius);background:transparent;color:var(--text-secondary);border:1px solid var(--border);cursor:pointer;font-weight:600;font-size:13px;">&#8635; Reset</button>';
+  html+='</div>';
+
+  // Assignment table with what-if rows
+  html+='<div class="class-detail-table"><table><thead><tr><th>DATE</th><th>ASSIGNMENT</th><th>SCORE</th><th>CATEGORY</th><th></th></tr></thead><tbody>';
+  // What-if rows container
+  // Real assignments (what-if rows added via button only)
+  if(mark.assignments.length){
+    mark.assignments.forEach((a,ai)=>{
+      const parts=(a.score||'').split('/');
+      const earned=parts[0]||'0';const possible=parts[1]||'0';
+      html+='<tr data-category="'+a.category+'"><td>'+a.date+'</td><td>'+(a.notes&&a.notes.includes('Not Graded')?'(NR) ':'')+a.name+'</td><td><input type="number" class="edit-earned" data-idx="'+ai+'" data-category="'+a.category+'" value="'+earned.trim()+'" min="0" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:0;font-size:13px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;text-align:center;" oninput="recalcGrade('+courseIdx+')"> / <input type="number" class="edit-possible" data-idx="'+ai+'" data-category="'+a.category+'" value="'+possible.trim()+'" min="0" style="width:60px;padding:4px 8px;border:1px solid var(--border);border-radius:0;font-size:13px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;text-align:center;" oninput="recalcGrade('+courseIdx+')"></td><td>'+a.category+'</td><td></td></tr>';
+    });
+  }else{html+='<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-secondary);">No assignments yet.</td></tr>';}
+  html+='</tbody></table></div>';
+
+  // What-if result
+  html+='<div id="whatif-result" style="margin-top:12px;padding:12px 16px;background:var(--bg-card);border-radius:var(--radius);box-shadow:var(--shadow);display:none;"><div><span style="font-weight:700;">Projected MP Grade: </span><span id="whatif-grade" style="font-size:18px;font-weight:800;"></span></div><div id="whatif-cats" style="margin-top:8px;font-size:13px;color:var(--text-secondary);"></div><div id="whatif-sem" style="margin-top:8px;font-size:13px;font-weight:600;"></div></div>';
+
+  document.getElementById('page-class-detail').innerHTML=html;
+  navigate('class-detail');
+}
+let whatIfCounter=1;
+function addWhatIfRow(courseIdx){
+  const course=state.gradebook.courses[courseIdx];const mark=course.marks[0];if(!mark)return;
+  const catNames=[...new Set(mark.assignments.map(a=>a.category||'Uncategorized'))];
+  const catOptions=catNames.map(c=>'<option value="'+c+'">'+c+'</option>').join('');
+  const id=whatIfCounter++;
+  const row=document.createElement('tr');row.className='new-assignment-row';row.id='whatif-row-'+id;
+  row.innerHTML='<td style="color:var(--grade-a);font-weight:600;">+</td><td><input type="text" class="whatif-name" placeholder="New Assignment" maxlength="80" style="width:100%;padding:4px 8px;border:1px solid var(--primary);border-radius:0;font-size:13px;font-family:inherit;background:var(--bg);color:var(--grade-a);font-weight:600;outline:none;" value=""></td><td><input type="number" class="whatif-earned" placeholder="0" min="0" oninput="calcWhatIf('+courseIdx+')"> / <input type="number" class="whatif-possible" placeholder="0" min="0" oninput="calcWhatIf('+courseIdx+')"></td><td><select class="new-assignment-row whatif-category">'+catOptions+'</select></td><td><button onclick="removeWhatIfRow(\'whatif-row-'+id+'\','+courseIdx+')" style="background:none;border:none;color:var(--grade-d);cursor:pointer;font-size:16px;font-weight:700;padding:4px 8px;" title="Remove">&times;</button></td>';
+  const tbody=document.querySelector('.class-detail-table tbody');
+  const firstReal=tbody.querySelector('tr:not(.new-assignment-row)');
+  if(firstReal)tbody.insertBefore(row,firstReal);else tbody.appendChild(row);
+  calcWhatIf(courseIdx);
+}
+function removeWhatIfRow(rowId,courseIdx){
+  const row=document.getElementById(rowId);if(row)row.remove();
+  calcWhatIf(courseIdx);
+}
+function calcWhatIf(courseIdx){recalcGrade(courseIdx);}
+
+function recalcGrade(courseIdx){
+  // MCPS weighted grading: AT (All Tasks/Assessment) = 90%, PP (Practice/Preparation) = 10%
+  const MCPS_WEIGHTS={'All Tasks / Assessments':0.9,'Practice / Preparation':0.1};
+  // Collect scores by category from real assignments
+  const cats={};
+  const editEarned=document.querySelectorAll('.edit-earned');
+  const editPossible=document.querySelectorAll('.edit-possible');
+  editEarned.forEach((el,i)=>{
+    const e=parseFloat(el.value);const p=parseFloat(editPossible[i]?.value);
+    const cat=el.getAttribute('data-category')||'Uncategorized';
+    if(!cats[cat])cats[cat]={earned:0,possible:0};
+    if(!isNaN(e)&&!isNaN(p)&&p>0){cats[cat].earned+=e;cats[cat].possible+=p;}
+  });
+  // Add what-if rows by their selected category
+  const wEarned=document.querySelectorAll('.whatif-earned');
+  const wPossible=document.querySelectorAll('.whatif-possible');
+  const wCats=document.querySelectorAll('.whatif-category');
+  wEarned.forEach((el,i)=>{
+    const e=parseFloat(el.value);const p=parseFloat(wPossible[i]?.value);
+    const cat=wCats[i]?wCats[i].value:'Uncategorized';
+    if(!cats[cat])cats[cat]={earned:0,possible:0};
+    if(!isNaN(e)&&!isNaN(p)&&p>0){cats[cat].earned+=e;cats[cat].possible+=p;}
+  });
+  // Determine if we should use weighted calculation
+  const catKeys=Object.keys(cats).filter(k=>cats[k].possible>0);
+  const hasWeightedCats=catKeys.some(k=>MCPS_WEIGHTS[k]!==undefined);
+  let newPct=0;
+  if(hasWeightedCats&&catKeys.length>0){
+    // Weighted calculation: each category gets its own percentage, then weighted
+    let weightedSum=0,weightSum=0;
+    catKeys.forEach(k=>{
+      const catPct=cats[k].earned/cats[k].possible*100;
+      // Look up weight; normalize category names for matching
+      let w=MCPS_WEIGHTS[k];
+      if(w===undefined){
+        // Try fuzzy match: AT/ATA/All Tasks or PP/Practice
+        const kl=k.toLowerCase();
+        if(kl.includes('all task')||kl.includes('assessment')||kl==='at'||kl==='ata')w=0.9;
+        else if(kl.includes('practice')||kl.includes('preparation')||kl==='pp')w=0.1;
+        else w=null;
+      }
+      if(w!==null&&w!==undefined){weightedSum+=catPct*w;weightSum+=w;}
+      else{/* unrecognized category — use simple earned/possible for this chunk */weightedSum+=catPct;weightSum+=1;}
+    });
+    // If only one category exists (e.g. only AT assignments so far), scale to full weight
+    newPct=weightSum>0?(weightedSum/weightSum):0;
+  }else{
+    // Fallback: no recognized MCPS categories, use simple total
+    let totalE=0,totalP=0;
+    catKeys.forEach(k=>{totalE+=cats[k].earned;totalP+=cats[k].possible;});
+    newPct=totalP>0?(totalE/totalP*100):0;
+  }
+  const newLetter=getLetterFromPct(newPct);
+  // Update displayed grade in header
+  const gradeEl=document.querySelector('.class-detail-grade');
+  if(gradeEl){gradeEl.style.color=getGradeColor(newLetter);gradeEl.textContent=newLetter+' ('+newPct.toFixed(2)+'%)';}
+  // Update category bars in header (AT/PP bars)
+  const detailCatBars=document.getElementById('detail-cat-bars');
+  if(detailCatBars){
+    var barsHtml='';
+    catKeys.forEach(function(k){
+      var catPct=(cats[k].earned/cats[k].possible*100);
+      var catPctR=Math.round(catPct*100)/100;
+      var catLtr=getLetterFromPct(catPctR);
+      var catColor=getGradeColor(catLtr);
+      var barW=Math.max(15,catPctR);
+      barsHtml+='<div class="category-bar" style="width:'+barW+'%"><div class="category-bar-bg" style="background:'+catColor+';opacity:0.7;"></div><div class="category-bar-text">'+k+' ('+catPctR+'%) - '+cats[k].earned+'/'+cats[k].possible+'</div></div>';
+    });
+    detailCatBars.innerHTML=barsHtml;
+  }
+  // Update semester bar in header
+  var sgData=state.semesterGrades&&state.semesterGrades[courseIdx];
+  var detailSemBar=document.getElementById('detail-sem-bar');
+  if(detailSemBar&&sgData&&(sgData.qAPct!=null||sgData.qBPct!=null)){
+    var otherQ=sgData.qAPct!=null?sgData.qAPct:sgData.qBPct;
+    var projSem=(otherQ+newPct)/2;
+    var projSemLetter=getLetterFromPct(projSem);
+    var projSemColor=getGradeColor(projSemLetter);
+    var semLbl=(sgData.semNum===1?'1st':'2nd')+' Semester';
+    detailSemBar.innerHTML='<div style="margin-top:4px;"><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px;"><span>'+semLbl+' ('+projSem.toFixed(2)+'%)</span><span>'+projSemLetter+'</span></div><div style="height:10px;border-radius:5px;background:var(--border);overflow:hidden;"><div style="height:100%;width:'+Math.min(projSem,100)+'%;border-radius:5px;background:'+projSemColor+';transition:width 0.5s;"></div></div></div>';
+  }
+  // Also update what-if result box if any what-if rows exist
+  const resultEl=document.getElementById('whatif-result');const gradeSpan=document.getElementById('whatif-grade');
+  const catsEl=document.getElementById('whatif-cats');const semEl=document.getElementById('whatif-sem');
+  if(wEarned.length>0){
+    let hasWhatIf=false;
+    wEarned.forEach((el,i)=>{const e=parseFloat(el.value);const p=parseFloat(wPossible[i]?.value);if(!isNaN(e)&&!isNaN(p)&&p>0)hasWhatIf=true;});
+    if(hasWhatIf&&resultEl){
+      resultEl.style.display='block';
+      gradeSpan.innerHTML=newPct.toFixed(2)+'% <span class="grade-badge '+getGradeBadgeClass(newLetter)+'" style="font-size:14px;padding:4px 12px;margin-left:8px;">'+newLetter+'</span>';
+      if(catsEl){
+        var catHtml='';
+        catKeys.forEach(function(k){
+          var catPct2=(cats[k].earned/cats[k].possible*100).toFixed(1);
+          var catLtr2=getLetterFromPct(parseFloat(catPct2));
+          catHtml+='<span style="margin-right:16px;">'+k+': <strong style="color:'+getGradeColor(catLtr2)+';">'+catPct2+'% ('+catLtr2+')</strong></span>';
+        });
+        catsEl.innerHTML=catHtml;
+      }
+      if(semEl){
+        if(sgData&&(sgData.qAPct!=null||sgData.qBPct!=null)){
+          var otherQ2=sgData.qAPct!=null?sgData.qAPct:sgData.qBPct;
+          var projSem2=((otherQ2+newPct)/2);
+          var projSemLetter2=getLetterFromPct(projSem2);
+          semEl.innerHTML='Projected Semester: <span style="color:'+getGradeColor(projSemLetter2)+';">'+projSem2.toFixed(2)+'% ('+projSemLetter2+')</span>';
+          semEl.style.display='block';
+        }else{semEl.style.display='none';}
+      }
+    }
+    else if(resultEl){resultEl.style.display='none';}
+  }
+}
+async function switchMarkingPeriodAndRefresh(val,courseIdx){if(val===''||val==null||state.isGuest||!state.authToken)return;showSpinner();try{const gradesData=await fetchGradesByPeriod(state.authToken,val);if(gradesData){state.gradebook=convertGrades(gradesData);renderGrades();populateGpaFromGrades();showClassDetail(courseIdx);}}catch(err){console.error('Failed to switch marking period:',err);}hideSpinner();}
+function showAssignments(courseIdx){showClassDetail(courseIdx);}
+function closeModal(){document.getElementById('assignment-modal').classList.remove('active');}
+function setGradeView(view,btn){const cards=document.getElementById('grades-cards');const table=document.getElementById('grades-table');btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(view==='card'){cards.classList.add('active');cards.style.display='grid';table.classList.remove('active');table.style.display='none';}else{cards.classList.remove('active');cards.style.display='none';table.classList.add('active');table.style.display='block';}}
+async function switchMarkingPeriod(val){if(val===''||val==null||state.isGuest||!state.authToken)return;showSpinner();try{const gradesData=await fetchGradesByPeriod(state.authToken,val);if(gradesData){state.gradebook=convertGrades(gradesData);renderGrades();populateGpaFromGrades();}}catch(err){console.error('Failed to switch marking period:',err);}hideSpinner();}
+function detectCourseLevel(title){const t=title.toLowerCase();const apPatterns=[/\bap\b/,/\badvanced placement\b/,/\bib\b/,/\binternational baccalaureate\b/];const honPatterns=[/\bhonors?\b/,/\bhon\b/,/\bgt\b/,/\bhonrs?\b/];for(const p of apPatterns){if(p.test(t))return'ap';}for(const p of honPatterns){if(p.test(t))return'honors';}return'regular';}
+function populateGpaFromGrades(){const rows=document.getElementById('gpa-rows');rows.innerHTML='';if(!state.gradebook){addGpaRow();addGpaRow();addGpaRow();return;}state.gradebook.courses.forEach(c=>{const letter=c.marks[0]?c.marks[0].score.charAt(0):'';const level=detectCourseLevel(c.title);addGpaRow(c.title,letter,level);});calculateGpa();}
+function addGpaRow(name='',grade='',level='regular'){const container=document.getElementById('gpa-rows');const row=document.createElement('div');row.className='gpa-row';row.innerHTML=`<input type="text" placeholder="Course name" value="${name}" oninput="calculateGpa()"><select onchange="calculateGpa()"><option value="" ${grade===''?'selected':''}>Grade</option><option value="A" ${grade==='A'?'selected':''}>A</option><option value="B" ${grade==='B'?'selected':''}>B</option><option value="C" ${grade==='C'?'selected':''}>C</option><option value="D" ${grade==='D'?'selected':''}>D</option><option value="E" ${grade==='E'?'selected':''}>E / F</option></select><select onchange="calculateGpa()"><option value="regular" ${level==='regular'?'selected':''}>Regular</option><option value="honors" ${level==='honors'?'selected':''}>Honors</option><option value="ap" ${level==='ap'?'selected':''}>AP / IB</option></select><button class="gpa-remove" onclick="this.parentElement.remove();calculateGpa()">x</button>`;container.appendChild(row);}
+function setGpaType(type,btn){state.gpaType=type;btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('gpa-label').textContent=type==='weighted'?'Weighted GPA (MCPS)':'Unweighted GPA';calculateGpa();}
+function calculateGpa(){const rows=document.querySelectorAll('#gpa-rows .gpa-row');let total=0,count=0;const gradePoints={A:4,B:3,C:2,D:1,E:0};const mcpsWeightedPoints={regular:{A:4,B:3,C:2,D:1,E:0},honors:{A:5,B:4,C:3,D:1,E:0},ap:{A:5,B:4,C:3,D:1,E:0}};rows.forEach(row=>{const grade=row.querySelectorAll('select')[0].value;const level=row.querySelectorAll('select')[1].value;if(!grade)return;let pts;if(state.gpaType==='weighted'){pts=(mcpsWeightedPoints[level]||mcpsWeightedPoints.regular)[grade]||0;}else{pts=gradePoints[grade]||0;}total+=pts;count++;});const gpa=count>0?(total/count).toFixed(2):'0.00';document.getElementById('gpa-value').textContent=gpa;}
+let opportunitiesData=null;let currentOppTab='internships';
+const SHEET_IDS={internships:'1atkI976Dxwkjh2MP0ifZbLQS6m8sMM8LlwxT1qv3Aro',programs:'1MLijBO1RgiXAdsCdV1M0Hax85oxI7tddmXEkfCav7J8',scholarships:'12UUO-Om8HtAFJ8bE-aQo1ZNBSixsHLinhvCyfn94CbQ'};
+async function loadOpportunities(){
+  if(opportunitiesData)return;
+  document.getElementById('opp-loading').style.display='block';
+  opportunitiesData={internships:{},programs:{},scholarships:[]};
+  try{
+    // Sheet 1: Internships by grade level
+    const grades=['Freshmen','Sophomores','Juniors','Seniors'];
+    for(const grade of grades){
+      try{
+        const r=await fetch('https://docs.google.com/spreadsheets/d/'+SHEET_IDS.internships+'/gviz/tq?tqx=out:json&sheet='+encodeURIComponent(grade));
+        const t=await r.text();const json=t.replace(/^[^(]*\(/,'').replace(/\);?\s*$/,'');
+        const data=JSON.parse(json);
+        opportunitiesData.internships[grade]=[];
+        for(let i=1;i<data.table.rows.length;i++){
+          const row=data.table.rows[i].c;
+          const name=row[0]?(row[0].v||''):'';
+          const dueDate=row[3]?(row[3].v||''):'';
+          const link=row[4]?(row[4].v||''):'';
+          const subjects=row[8]?(row[8].v||''):'';
+          const info=row[11]?(row[11].v||''):'';
+          if(name&&name!=='NAME')opportunitiesData.internships[grade].push({name,dueDate:formatSheetDate(dueDate),link,subjects,info});
+        }
+      }catch{}
+    }
+    // Sheet 2: Summer programs by discipline
+    const cats=['STEM','Business','Arts','Precollege'];
+    for(const cat of cats){
+      try{
+        const r=await fetch('https://docs.google.com/spreadsheets/d/'+SHEET_IDS.programs+'/gviz/tq?tqx=out:json&sheet='+encodeURIComponent(cat));
+        const t=await r.text();const json=t.replace(/^[^(]*\(/,'').replace(/\);?\s*$/,'');
+        const data=JSON.parse(json);
+        opportunitiesData.programs[cat]=[];
+        for(let i=1;i<data.table.rows.length;i++){
+          const row=data.table.rows[i].c;
+          const name=row[0]?(row[0].v||''):'';
+          const discipline=row[1]?(row[1].v||''):'';
+          const website=row[2]?(row[2].v||''):'';
+          if(name&&name!=='Program Name')opportunitiesData.programs[cat].push({name,discipline,link:website});
+        }
+      }catch{}
+    }
+    // Sheet 3: Scholarships
+    try{
+      const r=await fetch('https://docs.google.com/spreadsheets/d/'+SHEET_IDS.scholarships+'/gviz/tq?tqx=out:json&gid=0');
+      const t=await r.text();const json=t.replace(/^[^(]*\(/,'').replace(/\);?\s*$/,'');
+      const data=JSON.parse(json);
+      for(let i=0;i<data.table.rows.length;i++){
+        const row=data.table.rows[i].c;
+        const name=row[0]?(row[0].v||''):'';
+        const type=row[1]?(row[1].v||''):'';
+        const amount=row[2]?(row[2].v||''):'';
+        const qualifiers=row[3]?(row[3].v||''):'';
+        const link=row[5]?(row[5].v||''):'';
+        if(name&&name!=='Name '&&name!=='Name')opportunitiesData.scholarships.push({name:name.trim(),type,amount:'$'+Number(amount).toLocaleString(),qualifiers,link});
+      }
+    }catch{}
+  }catch{}
+  document.getElementById('opp-loading').style.display='none';
+  renderOpportunities();
+}
+function formatSheetDate(d){if(!d)return'';if(typeof d==='string'&&d.startsWith('Date(')){const m=d.match(/Date\((\d+),(\d+),(\d+)\)/);if(m)return new Date(+m[1],+m[2],+m[3]).toLocaleDateString('en-US',{month:'short',day:'numeric'});}return d;}
+function setOpportunityTab(tab,btn){currentOppTab=tab;btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  const gradeFilter=document.getElementById('opp-grade-filter');
+  gradeFilter.style.display=tab==='internships'?'':'none';
+  renderOpportunities();}
+function renderOpportunities(){
+  if(!opportunitiesData){loadOpportunities();return;}
+  const container=document.getElementById('opp-content');
+  const search=(document.getElementById('opp-search').value||'').toLowerCase();
+  let html='';
+  if(currentOppTab==='internships'){
+    const grade=document.getElementById('opp-grade-filter').value;
+    const grades=grade==='all'?['Freshmen','Sophomores','Juniors','Seniors']:[grade];
+    let items=[];
+    grades.forEach(g=>{(opportunitiesData.internships[g]||[]).forEach(item=>{item._grade=g;items.push(item);});});
+    if(search)items=items.filter(i=>(i.name+i.subjects+i.info).toLowerCase().includes(search));
+    html=items.length?items.map(i=>`<div style="background:var(--bg-card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border-left:4px solid var(--primary);">
+      <div style="display:flex;justify-content:space-between;align-items:start;gap:12px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;"><div style="font-weight:700;font-size:15px;margin-bottom:4px;">${i.name}</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">${i.subjects||''}</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">${(i.info||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>'<span style="font-size:11px;padding:3px 8px;border-radius:20px;background:var(--bg);color:var(--text-secondary);border:1px solid var(--border);">'+t+'</span>').join('')}</div></div>
+        <div style="text-align:right;flex-shrink:0;">${i.dueDate?'<div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">Due: '+i.dueDate+'</div>':''}
+        <span style="font-size:11px;padding:3px 8px;border-radius:20px;background:rgba(108,99,255,0.1);color:var(--primary);font-weight:600;">${i._grade}</span>
+        ${i.link?'<a href="'+(i.link.startsWith('http')?i.link:'https://'+i.link)+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;font-size:13px;color:var(--primary);text-decoration:none;font-weight:600;">Apply &rarr;</a>':''}</div>
+      </div></div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-secondary);">No internships found.</div>';
+  }else if(currentOppTab==='programs'){
+    let items=[];
+    Object.keys(opportunitiesData.programs).forEach(cat=>{(opportunitiesData.programs[cat]||[]).forEach(item=>{item._cat=cat;items.push(item);});});
+    if(search)items=items.filter(i=>(i.name+i.discipline+i._cat).toLowerCase().includes(search));
+    html=items.length?items.map(i=>`<div style="background:var(--bg-card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border-left:4px solid var(--grade-b);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div><div style="font-weight:700;font-size:15px;margin-bottom:4px;">${i.name}</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;"><span style="font-size:11px;padding:3px 8px;border-radius:20px;background:var(--grade-b-bg);color:var(--grade-b);font-weight:600;">${i._cat}</span>
+      ${i.discipline?'<span style="font-size:11px;padding:3px 8px;border-radius:20px;background:var(--bg);color:var(--text-secondary);border:1px solid var(--border);">'+i.discipline+'</span>':''}</div></div>
+      ${i.link?'<a href="'+(i.link.startsWith('http')?i.link:'https://'+i.link)+'" target="_blank" rel="noopener" style="font-size:13px;color:var(--primary);text-decoration:none;font-weight:600;flex-shrink:0;">Visit &rarr;</a>':''}</div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-secondary);">No programs found.</div>';
+  }else{
+    let items=opportunitiesData.scholarships||[];
+    if(search)items=items.filter(i=>(i.name+i.type+i.qualifiers).toLowerCase().includes(search));
+    html=items.length?items.map(i=>`<div style="background:var(--bg-card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border-left:4px solid var(--grade-a);">
+      <div style="display:flex;justify-content:space-between;align-items:start;gap:12px;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;"><div style="font-weight:700;font-size:15px;margin-bottom:4px;">${i.name}</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">${i.type||''}</div>
+        ${i.qualifiers?'<div style="font-size:12px;color:var(--text-secondary);margin-top:6px;line-height:1.5;">'+i.qualifiers.substring(0,150)+(i.qualifiers.length>150?'...':'')+'</div>':''}</div>
+        <div style="text-align:right;flex-shrink:0;"><div style="font-size:20px;font-weight:800;color:var(--grade-a);">${i.amount||'Varies'}</div>
+        ${i.link?'<a href="'+i.link+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;font-size:13px;color:var(--primary);text-decoration:none;font-weight:600;">Apply &rarr;</a>':''}</div>
+      </div></div>`).join(''):'<div style="text-align:center;padding:40px;color:var(--text-secondary);">No scholarships found.</div>';
+  }
+  container.innerHTML=html;
+}
+// === RANKED PAGE ===
+// College data sourced from 2024-25 Common Data Sets (CDS Section C)
+// sat25/sat75 = SAT middle 50%, act25/act75 = ACT middle 50%, gpa = avg admitted GPA
+// wG/wT/wR/wE = factor weights from CDS C7: GPA, Testing, Rigor, Extracurriculars+Holistic (1-5 scale)
+const COLLEGE_DATA=[
+  {name:'Harvard',accept:3.2,sat25:1490,sat75:1580,act25:34,act75:36,gpa:3.97,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'MIT',accept:3.4,sat25:1510,sat75:1580,act25:34,act75:36,gpa:3.96,wG:5,wT:5,wR:5,wE:3,type:'reach'},
+  {name:'Stanford',accept:3.7,sat25:1500,sat75:1580,act25:34,act75:36,gpa:3.96,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Princeton',accept:4.0,sat25:1500,sat75:1570,act25:34,act75:36,gpa:3.95,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Yale',accept:4.6,sat25:1490,sat75:1570,act25:34,act75:36,gpa:3.95,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Caltech',accept:2.7,sat25:1530,sat75:1580,act25:35,act75:36,gpa:3.97,wG:5,wT:5,wR:5,wE:2,type:'reach'},
+  {name:'Columbia',accept:3.9,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.93,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'UChicago',accept:5.2,sat25:1500,sat75:1570,act25:34,act75:36,gpa:3.95,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'UPenn',accept:5.7,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.92,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Duke',accept:5.0,sat25:1490,sat75:1570,act25:34,act75:36,gpa:3.94,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Brown',accept:5.1,sat25:1480,sat75:1560,act25:34,act75:36,gpa:3.92,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Dartmouth',accept:5.5,sat25:1480,sat75:1560,act25:33,act75:35,gpa:3.92,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Johns Hopkins',accept:6.0,sat25:1500,sat75:1560,act25:34,act75:36,gpa:3.92,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Northwestern',accept:7.0,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.92,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Cornell',accept:7.3,sat25:1470,sat75:1550,act25:34,act75:35,gpa:3.9,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Rice',accept:7.7,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.92,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Vanderbilt',accept:5.6,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.91,wG:5,wT:3,wR:5,wE:5,type:'reach'},
+  {name:'Washington University in St. Louis',accept:9.0,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.93,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Notre Dame',accept:12.0,sat25:1440,sat75:1540,act25:33,act75:35,gpa:3.9,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Georgetown',accept:12.0,sat25:1420,sat75:1540,act25:33,act75:35,gpa:3.9,wG:4,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Carnegie Mellon',accept:11.0,sat25:1490,sat75:1560,act25:34,act75:36,gpa:3.89,wG:5,wT:4,wR:5,wE:3,type:'reach'},
+  {name:'Emory',accept:11.0,sat25:1430,sat75:1530,act25:33,act75:35,gpa:3.88,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'UCLA',accept:8.6,sat25:1400,sat75:1530,act25:31,act75:35,gpa:3.9,wG:5,wT:3,wR:5,wE:3,type:'reach'},
+  {name:'UC Berkeley',accept:11.4,sat25:1390,sat75:1530,act25:31,act75:35,gpa:3.89,wG:5,wT:3,wR:5,wE:3,type:'reach'},
+  {name:'USC',accept:9.2,sat25:1420,sat75:1530,act25:33,act75:35,gpa:3.87,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'Tufts',accept:9.5,sat25:1430,sat75:1540,act25:33,act75:35,gpa:3.88,wG:5,wT:3,wR:5,wE:4,type:'reach'},
+  {name:'UMich (Ann Arbor)',accept:15.0,sat25:1380,sat75:1530,act25:32,act75:35,gpa:3.88,wG:5,wT:3,wR:5,wE:3,type:'target'},
+  {name:'UVA',accept:16.3,sat25:1370,sat75:1510,act25:32,act75:35,gpa:3.87,wG:5,wT:3,wR:5,wE:3,type:'target'},
+  {name:'Georgia Tech',accept:16.0,sat25:1390,sat75:1530,act25:32,act75:35,gpa:3.87,wG:5,wT:4,wR:5,wE:2,type:'target'},
+  {name:'NYU',accept:12.2,sat25:1370,sat75:1520,act25:32,act75:35,gpa:3.7,wG:5,wT:3,wR:4,wE:4,type:'target'},
+  {name:'Wake Forest',accept:21.0,sat25:1360,sat75:1490,act25:31,act75:34,gpa:3.85,wG:5,wT:2,wR:4,wE:4,type:'target'},
+  {name:'William & Mary',accept:33.0,sat25:1360,sat75:1500,act25:31,act75:34,gpa:3.85,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'Boston College',accept:15.0,sat25:1400,sat75:1510,act25:33,act75:35,gpa:3.83,wG:5,wT:3,wR:5,wE:4,type:'target'},
+  {name:'Northeastern',accept:5.6,sat25:1410,sat75:1530,act25:33,act75:35,gpa:3.77,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'UNC Chapel Hill',accept:16.8,sat25:1350,sat75:1500,act25:30,act75:34,gpa:3.85,wG:5,wT:3,wR:5,wE:3,type:'target'},
+  {name:'Boston University',accept:14.0,sat25:1370,sat75:1510,act25:32,act75:35,gpa:3.73,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'UC San Diego',accept:24.0,sat25:1350,sat75:1510,act25:30,act75:34,gpa:3.85,wG:5,wT:3,wR:5,wE:2,type:'target'},
+  {name:'UC Davis',accept:37.0,sat25:1250,sat75:1460,act25:28,act75:33,gpa:3.8,wG:5,wT:2,wR:4,wE:2,type:'target'},
+  {name:'UC Santa Barbara',accept:26.0,sat25:1280,sat75:1480,act25:29,act75:34,gpa:3.82,wG:5,wT:2,wR:5,wE:2,type:'target'},
+  {name:'UC Irvine',accept:21.0,sat25:1260,sat75:1470,act25:28,act75:34,gpa:3.8,wG:5,wT:2,wR:4,wE:2,type:'target'},
+  {name:'UMD College Park',accept:44.0,sat25:1340,sat75:1500,act25:31,act75:34,gpa:3.8,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Florida',accept:23.0,sat25:1330,sat75:1490,act25:30,act75:34,gpa:3.8,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Wisconsin-Madison',accept:49.0,sat25:1310,sat75:1470,act25:28,act75:33,gpa:3.78,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Illinois Urbana-Champaign',accept:45.0,sat25:1310,sat75:1490,act25:29,act75:34,gpa:3.75,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Texas at Austin',accept:29.0,sat25:1280,sat75:1470,act25:28,act75:33,gpa:3.75,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Washington',accept:48.0,sat25:1290,sat75:1470,act25:29,act75:34,gpa:3.75,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Minnesota Twin Cities',accept:64.0,sat25:1280,sat75:1440,act25:27,act75:32,gpa:3.7,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'Tulane',accept:11.0,sat25:1360,sat75:1490,act25:31,act75:34,gpa:3.72,wG:5,wT:3,wR:4,wE:4,type:'target'},
+  {name:'Villanova',accept:22.0,sat25:1360,sat75:1490,act25:32,act75:34,gpa:3.75,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'Case Western Reserve',accept:28.0,sat25:1390,sat75:1520,act25:32,act75:35,gpa:3.78,wG:5,wT:4,wR:4,wE:3,type:'target'},
+  {name:'RPI',accept:57.0,sat25:1360,sat75:1500,act25:31,act75:34,gpa:3.75,wG:5,wT:4,wR:4,wE:2,type:'likely'},
+  {name:'Rochester Institute of Technology',accept:66.0,sat25:1260,sat75:1420,act25:28,act75:33,gpa:3.65,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'Brandeis',accept:32.0,sat25:1350,sat75:1490,act25:31,act75:34,gpa:3.72,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'Santa Clara University',accept:42.0,sat25:1310,sat75:1460,act25:30,act75:33,gpa:3.7,wG:5,wT:3,wR:3,wE:3,type:'target'},
+  {name:'Lehigh',accept:32.0,sat25:1340,sat75:1480,act25:31,act75:34,gpa:3.72,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'Virginia Tech',accept:57.0,sat25:1240,sat75:1400,act25:27,act75:32,gpa:3.7,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'Penn State',accept:55.0,sat25:1200,sat75:1380,act25:26,act75:31,gpa:3.6,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'Ohio State',accept:53.0,sat25:1240,sat75:1420,act25:27,act75:32,gpa:3.65,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'Purdue',accept:53.0,sat25:1210,sat75:1410,act25:27,act75:33,gpa:3.6,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'Michigan State',accept:72.0,sat25:1130,sat75:1320,act25:24,act75:30,gpa:3.55,wG:5,wT:3,wR:2,wE:1,type:'likely'},
+  {name:'Indiana University Bloomington',accept:80.0,sat25:1110,sat75:1310,act25:24,act75:30,gpa:3.5,wG:5,wT:3,wR:2,wE:1,type:'likely'},
+  {name:'U of Pittsburgh',accept:42.0,sat25:1240,sat75:1410,act25:28,act75:33,gpa:3.6,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'Clemson',accept:43.0,sat25:1230,sat75:1390,act25:27,act75:32,gpa:3.6,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'U of Connecticut',accept:51.0,sat25:1240,sat75:1400,act25:28,act75:33,gpa:3.6,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'Syracuse',accept:46.0,sat25:1210,sat75:1380,act25:27,act75:32,gpa:3.55,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'Rutgers',accept:63.0,sat25:1210,sat75:1400,act25:27,act75:32,gpa:3.55,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'U of Massachusetts Amherst',accept:58.0,sat25:1260,sat75:1410,act25:28,act75:33,gpa:3.6,wG:5,wT:3,wR:3,wE:1,type:'likely'},
+  {name:'NC State',accept:42.0,sat25:1290,sat75:1440,act25:28,act75:32,gpa:3.6,wG:5,wT:3,wR:4,wE:2,type:'likely'},
+  {name:'U of Iowa',accept:84.0,sat25:1140,sat75:1313,act25:21,act75:28,gpa:3.5,wG:5,wT:2,wR:3,wE:1,type:'likely'},
+  {name:'U of Oregon',accept:88.0,sat25:1130,sat75:1360,act25:23,act75:30,gpa:3.5,wG:5,wT:2,wR:3,wE:1,type:'likely'},
+  {name:'U of Colorado Boulder',accept:78.0,sat25:1160,sat75:1390,act25:26,act75:32,gpa:3.55,wG:5,wT:2,wR:3,wE:2,type:'likely'},
+  {name:'Arizona State',accept:90.0,sat25:1130,sat75:1360,act25:22,act75:29,gpa:3.4,wG:5,wT:2,wR:2,wE:1,type:'safety'},
+  {name:'Temple University',accept:80.0,sat25:1130,sat75:1358,act25:24,act75:30,gpa:3.42,wG:5,wT:2,wR:3,wE:2,type:'likely'},
+  {name:'Auburn',accept:46.0,sat25:1260,sat75:1390,act25:26,act75:31,gpa:3.5,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'U of South Carolina',accept:60.0,sat25:1180,sat75:1360,act25:26,act75:32,gpa:3.45,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'Drexel University',accept:79.0,sat25:1240,sat75:1440,act25:27,act75:32,gpa:3.45,wG:5,wT:2,wR:3,wE:2,type:'likely'},
+  {name:'American University',accept:62.0,sat25:1280,sat75:1460,act25:29,act75:32,gpa:3.55,wG:5,wT:2,wR:4,wE:4,type:'target'},
+  {name:'Howard University',accept:41.0,sat25:1090,sat75:1320,act25:22,act75:28,gpa:3.4,wG:5,wT:2,wR:3,wE:4,type:'target'},
+  {name:'Fordham',accept:59.0,sat25:1380,sat75:1490,act25:30,act75:33,gpa:3.6,wG:5,wT:3,wR:4,wE:3,type:'target'},
+  {name:'U of Maryland Baltimore County',accept:72.0,sat25:1240,sat75:1420,act25:26,act75:31,gpa:3.5,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'George Mason',accept:87.0,sat25:1140,sat75:1350,act25:24,act75:30,gpa:3.4,wG:5,wT:2,wR:3,wE:2,type:'safety'},
+  {name:'Towson University',accept:82.0,sat25:950,sat75:1230,act25:20,act75:26,gpa:3.3,wG:5,wT:2,wR:2,wE:1,type:'safety'},
+  {name:'James Madison University',accept:72.0,sat25:1170,sat75:1340,act25:24,act75:29,gpa:3.45,wG:5,wT:2,wR:3,wE:2,type:'likely'},
+  {name:'U of Alabama',accept:77.0,sat25:1110,sat75:1360,act25:24,act75:31,gpa:3.3,wG:5,wT:2,wR:3,wE:1,type:'safety'},
+  {name:'U of Arizona',accept:86.0,sat25:1150,sat75:1420,act25:21,act75:29,gpa:3.3,wG:5,wT:2,wR:2,wE:1,type:'safety'},
+  {name:'Iowa State',accept:89.0,sat25:1130,sat75:1350,act25:21,act75:28,gpa:3.35,wG:5,wT:2,wR:3,wE:1,type:'safety'},
+  {name:'U of Central Florida',accept:40.0,sat25:1200,sat75:1350,act25:25,act75:29,gpa:3.3,wG:5,wT:3,wR:3,wE:2,type:'likely'},
+  {name:'San Diego State',accept:36.0,sat25:1130,sat75:1340,act25:24,act75:30,gpa:3.45,wG:5,wT:1,wR:3,wE:2,type:'target'},
+  {name:'U of Denver',accept:78.0,sat25:1230,sat75:1410,act25:28,act75:33,gpa:3.6,wG:5,wT:2,wR:4,wE:3,type:'likely'},
+  {name:'Loyola University Chicago',accept:82.0,sat25:1180,sat75:1350,act25:26,act75:31,gpa:3.45,wG:5,wT:2,wR:3,wE:3,type:'likely'},
+  {name:'SUNY Binghamton',accept:39.0,sat25:1340,sat75:1500,act25:30,act75:32,gpa:3.6,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'SUNY Stony Brook',accept:49.0,sat25:1330,sat75:1500,act25:29,act75:33,gpa:3.55,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'Florida State',accept:24.0,sat25:1270,sat75:1400,act25:29,act75:32,gpa:3.5,wG:5,wT:3,wR:4,wE:2,type:'target'},
+  {name:'U of Delaware',accept:71.0,sat25:1220,sat75:1360,act25:28,act75:32,gpa:3.5,wG:5,wT:2,wR:3,wE:2,type:'likely'},
+  {name:'Gonzaga',accept:82.0,sat25:1190,sat75:1380,act25:27,act75:31,gpa:3.6,wG:5,wT:2,wR:3,wE:3,type:'likely'},
+  {name:'George Washington University',accept:47.0,sat25:1360,sat75:1470,act25:31,act75:33,gpa:3.65,wG:5,wT:3,wR:4,wE:4,type:'target'}
+];
+// User profile for college readiness (persisted in localStorage)
+let collegeProfile=JSON.parse(localStorage.getItem('bunked-college-profile')||'null')||{sat:null,act:null,ecs:[],courses:['','','',''],major:'',homeState:'',awards:''};
+function saveCollegeProfile(){localStorage.setItem('bunked-college-profile',JSON.stringify(collegeProfile));}
+function computeRankedData(){
+  if(!state.gradebook)return null;
+  const courses=state.gradebook.courses;
+  // Class rankings by grade
+  const classRanks=courses.map(c=>{const m=c.marks[0];return{title:c.title,pct:parseFloat(m?.rawScore)||0,letter:m?.score||'?'};}).sort((a,b)=>b.pct-a.pct);
+  // GPA computation (unweighted + weighted) per MCPS IKC-RA policy
+  const gradePoints={A:4,B:3,C:2,D:1,E:0};
+  const mcpsWeighted={regular:{A:4,B:3,C:2,D:1,E:0},honors:{A:5,B:4,C:3,D:1,E:0},ap:{A:5,B:4,C:3,D:1,E:0}};
+  let uwTotal=0,wTotal=0,count=0;
+  courses.forEach(c=>{
+    const letter=(c.marks[0]?.score||'E').charAt(0);
+    const pts=gradePoints[letter]||0;
+    const lvl=detectCourseLevel(c.title);
+    const wPts=(mcpsWeighted[lvl]||mcpsWeighted.regular)[letter]||0;
+    uwTotal+=pts;wTotal+=wPts;count++;
+  });
+  const uwGPA=count>0?(uwTotal/count):0;
+  const wGPA=count>0?(wTotal/count):0;
+  // National percentile estimate (approx normal: mean=3.0, sd=0.5 for UW)
+  function normalCDF(x,mu,sig){const z=(x-mu)/sig;const t=1/(1+0.2316419*Math.abs(z));const d=0.3989423*Math.exp(-z*z/2);const p=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.8212560+t*1.3302744))));return z>0?1-p:p;}
+  const uwPercentile=Math.round(normalCDF(uwGPA,3.0,0.5)*100);
+  const wPercentile=Math.round(normalCDF(wGPA,3.15,0.6)*100);
+  // Course rigor
+  let apCount=0,honCount=0,regCount=0;
+  courses.forEach(c=>{
+    const lvl=detectCourseLevel(c.title);
+    if(lvl==='ap')apCount++;
+    else if(lvl==='honors')honCount++;
+    else regCount++;
+  });
+  const rigorScore=Math.round((apCount*3+honCount*2+regCount*1)/(courses.length*3)*100);
+  // Consistency (std dev of grades)
+  const pcts=courses.map(c=>parseFloat(c.marks[0]?.rawScore)||0).filter(p=>p>0);
+  const mean=pcts.reduce((a,b)=>a+b,0)/pcts.length;
+  const variance=pcts.reduce((a,p)=>a+Math.pow(p-mean,2),0)/pcts.length;
+  const stdDev=Math.round(Math.sqrt(variance)*100)/100;
+  const consistency=Math.max(0,Math.round(100-stdDev*2));
+  // MP trend (if semester grades available)
+  let trend='stable';let trendPct=0;
+  if(state.semesterGrades){
+    let qAAvg=0,qBAvg=0,cnt=0;
+    state.semesterGrades.forEach(sg=>{
+      if(sg.qAPct!=null&&sg.qBPct!=null){qAAvg+=sg.qAPct;qBAvg+=sg.qBPct;cnt++;}
+    });
+    if(cnt>0){qAAvg/=cnt;qBAvg/=cnt;trendPct=Math.round((qBAvg-qAAvg)*100)/100;trend=trendPct>1?'improving':trendPct<-1?'declining':'stable';}
+  }
+  return{classRanks,uwGPA:Math.round(uwGPA*100)/100,wGPA:Math.round(wGPA*100)/100,uwPercentile,wPercentile,apCount,honCount,regCount,rigorScore,consistency,stdDev,trend,trendPct,totalClasses:courses.length};
+}
+
+function toggleAccordion(id){
+  const body=document.getElementById(id);
+  const chevron=document.getElementById(id+'-chevron');
+  if(!body)return;
+  if(body.classList.contains('collapsed')){
+    body.classList.remove('collapsed');
+    body.style.maxHeight=body.scrollHeight+'px';
+    setTimeout(()=>{body.style.maxHeight='none';},350);
+    if(chevron)chevron.classList.add('open');
+  }else{
+    body.style.maxHeight=body.scrollHeight+'px';
+    requestAnimationFrame(()=>{body.style.maxHeight='0px';body.classList.add('collapsed');});
+    if(chevron)chevron.classList.remove('open');
+  }
+}
+function renderRanked(){
+  const el=document.getElementById('page-ranked');
+  const d=computeRankedData();
+  if(!d){el.innerHTML='<div class="page-header"><div><h1 class="page-title">Ranked</h1><p class="page-subtitle">Log in to see your stats</p></div></div>';return;}
+  let html='<div class="page-header"><div><h1 class="page-title">Ranked</h1><p class="page-subtitle">Your academic stats, rankings & college readiness</p></div></div>';
+
+  // ===== ROW: Class Rankings + GPA Percentile =====
+  html+='<div class="ranked-grid">';
+  html+='<div class="ranked-card"><div class="accordion-header" onclick="toggleAccordion(\'acc-classrank\')"><h3 style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>Your Classes Ranked</h3><span class="accordion-chevron open" id="acc-classrank-chevron">&#9660;</span></div><div class="accordion-body" id="acc-classrank" style="max-height:none;">';
+  d.classRanks.forEach((c,i)=>{
+    const color=getGradeColor(c.letter);
+    html+='<div class="ranked-class-row"><div class="ranked-class-rank">'+(i+1)+'</div><div class="ranked-class-name">'+c.title+'</div><div class="ranked-class-pct" style="color:'+color+'">'+c.pct+'%</div></div>';
+  });
+  const trendIcon=d.trend==='improving'?'&#9650;':d.trend==='declining'?'&#9660;':'&#9644;';
+  const trendColor=d.trend==='improving'?'var(--grade-a)':d.trend==='declining'?'var(--grade-e)':'var(--text-secondary)';
+  html+='<div style="margin-top:12px;padding:12px;background:var(--bg);border-radius:8px;display:flex;align-items:center;gap:8px;"><span style="color:'+trendColor+';font-size:18px;">'+trendIcon+'</span><span style="font-size:14px;font-weight:600;">Quarter Trend: <span style="color:'+trendColor+'">'+d.trend.charAt(0).toUpperCase()+d.trend.slice(1)+' ('+( d.trendPct>0?'+':'')+d.trendPct+'%)</span></span></div>';
+  html+='<div style="margin-top:8px;padding:12px;background:var(--bg);border-radius:8px;"><div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:6px;"><span>Consistency Score</span><span>'+d.consistency+'/100</span></div><div class="ranked-bar-track"><div class="ranked-bar-fill" style="width:'+d.consistency+'%;background:var(--gradient);"></div></div><div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">Std dev: '+d.stdDev+'% across classes '+(d.stdDev<5?'(very consistent)':d.stdDev<10?'(fairly consistent)':'(high variance)')+'</div></div>';
+  html+='</div></div>';
+  html+='<div class="ranked-card"><div class="accordion-header" onclick="toggleAccordion(\'acc-gpa\')"><h3 style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>GPA Percentile (National Est.)</h3><span class="accordion-chevron open" id="acc-gpa-chevron">&#9660;</span></div><div class="accordion-body" id="acc-gpa" style="max-height:none;">';
+  html+='<div style="text-align:center;margin-bottom:28px;"><div style="font-size:52px;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">'+d.wGPA.toFixed(2)+'</div><div style="font-size:13px;color:var(--text-secondary);margin-top:4px;">Weighted GPA</div></div>';
+  html+='<div style="margin-bottom:20px;padding:16px;background:var(--bg-main);border-radius:var(--radius);">';
+  html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><span style="font-size:14px;font-weight:600;">Unweighted GPA</span><span style="font-size:20px;font-weight:800;">'+d.uwGPA.toFixed(2)+'</span></div>';
+  html+='<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary);margin-bottom:6px;"><span>Estimated National Percentile</span><span style="font-weight:700;color:var(--text);">Top '+Math.max(1,100-d.uwPercentile)+'%</span></div>';
+  html+='<div class="ranked-bar-track" style="height:10px;border-radius:5px;"><div class="ranked-bar-fill" style="width:'+d.uwPercentile+'%;background:var(--grade-a);border-radius:5px;"></div></div></div>';
+  html+='<div style="padding:16px;background:var(--bg-main);border-radius:var(--radius);">';
+  html+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><span style="font-size:14px;font-weight:600;">Weighted GPA</span><span style="font-size:20px;font-weight:800;">'+d.wGPA.toFixed(2)+'</span></div>';
+  html+='<div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary);margin-bottom:6px;"><span>Estimated National Percentile</span><span style="font-weight:700;color:var(--text);">Top '+Math.max(1,100-d.wPercentile)+'%</span></div>';
+  html+='<div class="ranked-bar-track" style="height:10px;border-radius:5px;"><div class="ranked-bar-fill" style="width:'+d.wPercentile+'%;background:var(--primary);border-radius:5px;"></div></div></div>';
+  html+='</div></div></div>';
+
+  // ===== Course Rigor =====
+  html+='<div class="ranked-card" style="margin-bottom:20px;"><div class="accordion-header" onclick="toggleAccordion(\'acc-rigor\')"><h3 style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>Course Rigor</h3><span class="accordion-chevron open" id="acc-rigor-chevron">&#9660;</span></div><div class="accordion-body" id="acc-rigor" style="max-height:none;">';
+  html+='<div style="text-align:center;margin-bottom:16px;"><div style="font-size:48px;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">'+d.rigorScore+'<span style="font-size:24px;">/100</span></div><div style="font-size:13px;color:var(--text-secondary);">Rigor Score</div></div>';
+  html+='<div class="ranked-bar-track" style="height:12px;border-radius:6px;margin-bottom:16px;"><div class="ranked-bar-fill" style="width:'+d.rigorScore+'%;background:var(--gradient);border-radius:6px;"></div></div>';
+  html+='<div class="ranked-stat"><span class="ranked-stat-label">AP Classes</span><span class="ranked-stat-value" style="color:var(--grade-a);">'+d.apCount+'</span></div>';
+  html+='<div class="ranked-stat"><span class="ranked-stat-label">Honors Classes</span><span class="ranked-stat-value" style="color:var(--grade-b);">'+d.honCount+'</span></div>';
+  html+='<div class="ranked-stat"><span class="ranked-stat-label">Regular Classes</span><span class="ranked-stat-value">'+d.regCount+'</span></div>';
+  html+='<div class="ranked-stat"><span class="ranked-stat-label">Total Classes</span><span class="ranked-stat-value">'+d.totalClasses+'</span></div>';
+  html+='</div></div>';
+
+  // ===== SENIORITIS TRACKER =====
+  var sLabel='Locked In',sColor='var(--grade-a)',sEmoji='&#128170;',sPct=0;
+  if(d.trendPct<=-5){sLabel='Academic Free Fall';sColor='#d9534f';sEmoji='&#128128;';sPct=100;}
+  else if(d.trendPct<=-3){sLabel='Senioritis Stage 4';sColor='#e06040';sEmoji='&#128567;';sPct=85;}
+  else if(d.trendPct<=-1.5){sLabel='Coasting Hard';sColor='#b59f3b';sEmoji='&#128564;';sPct=65;}
+  else if(d.trendPct<=-0.5){sLabel='Slight Decline';sColor='#b59f3b';sEmoji='&#128533;';sPct=40;}
+  else if(d.trendPct<=1){sLabel='Holding Steady';sColor='var(--grade-b)';sEmoji='&#128528;';sPct=20;}
+  else{sLabel='Anti-Senioritis';sColor='var(--grade-a)';sEmoji='&#128293;';sPct=5;}
+  html+='<div class="ranked-card" style="margin-bottom:20px;"><div class="accordion-header" onclick="toggleAccordion(\'acc-senioritis\')"><h3 style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Senioritis Tracker</h3><span class="accordion-chevron open" id="acc-senioritis-chevron">&#9660;</span></div><div class="accordion-body" id="acc-senioritis" style="max-height:none;">';
+  html+='<div style="text-align:center;padding:20px 0;">';
+  html+='<div style="font-size:48px;margin-bottom:4px;">'+sEmoji+'</div>';
+  html+='<div style="font-size:24px;font-weight:900;color:'+sColor+';margin-bottom:4px;">'+sLabel+'</div>';
+  html+='<div style="font-size:13px;color:var(--text-secondary);margin-bottom:16px;">Quarter trend: <strong style="color:'+sColor+';">'+(d.trendPct>0?'+':'')+d.trendPct+'%</strong> across all classes</div>';
+  html+='<div style="max-width:300px;margin:0 auto;"><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-secondary);margin-bottom:4px;"><span>Locked In</span><span>Free Fall</span></div>';
+  html+='<div style="width:100%;height:10px;background:rgba(255,255,255,0.08);border-radius:5px;overflow:hidden;"><div style="width:'+sPct+'%;height:100%;background:'+sColor+';border-radius:5px;transition:width 0.5s;"></div></div></div>';
+  html+='</div></div></div>';
+
+  // ===== COLLEGE READINESS CHECKER (BOTTOM — CDS Data) =====
+  html+='<div class="ranked-card" style="margin-bottom:20px;"><div class="accordion-header" onclick="toggleAccordion(\'acc-college\')"><h3 style="margin-bottom:0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>College Readiness Checker <span style="font-size:12px;font-weight:500;color:var(--primary);margin-left:8px;">CDS Data</span></h3><span class="accordion-chevron open" id="acc-college-chevron">&#9660;</span></div><div class="accordion-body" id="acc-college" style="max-height:none;">';
+  html+='<div style="font-size:12px;color:var(--text-secondary);margin-bottom:16px;">Fill out your profile below, pick a college, and get an instant evaluation based on real Common Data Set admissions statistics.</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Test Scores</div>';
+  html+='<div class="college-input-grid" style="margin-bottom:20px;">';
+  html+='<div class="college-input-group"><label>SAT Score (optional)</label><input type="number" id="college-sat" placeholder="e.g. 1400" min="400" max="1600" value="'+(collegeProfile.sat||'')+'" onchange="collegeProfile.sat=this.value?parseInt(this.value):null;saveCollegeProfile();"></div>';
+  html+='<div class="college-input-group"><label>ACT Score (optional)</label><input type="number" id="college-act" placeholder="e.g. 32" min="1" max="36" value="'+(collegeProfile.act||'')+'" onchange="collegeProfile.act=this.value?parseInt(this.value):null;saveCollegeProfile();"></div>';
+  html+='</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Academics (from your gradebook)</div>';
+  html+='<div class="college-input-grid" style="margin-bottom:20px;">';
+  html+='<div class="college-input-group"><label>Weighted GPA</label><input type="text" disabled value="'+d.wGPA.toFixed(2)+'" style="opacity:0.7;cursor:not-allowed;"></div>';
+  html+='<div class="college-input-group"><label>Unweighted GPA</label><input type="text" disabled value="'+d.uwGPA.toFixed(2)+'" style="opacity:0.7;cursor:not-allowed;"></div>';
+  html+='<div class="college-input-group"><label>Current AP/IB Classes</label><input type="text" disabled value="'+d.apCount+'" style="opacity:0.7;cursor:not-allowed;"></div>';
+  html+='<div class="college-input-group"><label>Current Honors Classes</label><input type="text" disabled value="'+d.honCount+'" style="opacity:0.7;cursor:not-allowed;"></div>';
+  html+='</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Course History (optional — improves accuracy)</div>';
+  const grades=['Freshman (9th)','Sophomore (10th)','Junior (11th)','Senior (12th)'];
+  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">';
+  grades.forEach((g,gi)=>{
+    const val=collegeProfile.courses&&collegeProfile.courses[gi]?collegeProfile.courses[gi]:'';
+    html+='<div class="college-input-group"><label>'+g+'</label><input type="text" id="course-year-'+gi+'" placeholder="e.g. AP Bio, Hon Eng, Calc AB" value="'+val+'" onchange="saveCourseYear('+gi+',this.value)"></div>';
+  });
+  html+='</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Extracurriculars (up to 10)</div>';
+  html+='<div id="ec-slots" style="margin-bottom:20px;">';
+  for(let i=0;i<10;i++){
+    const ec=collegeProfile.ecs[i]||{type:'',name:'',role:'',years:''};
+    const borderStyle=i<collegeProfile.ecs.length?'border-color:var(--primary);':'';
+    html+='<div class="ec-slot" style="display:grid;grid-template-columns:160px 1fr 140px 80px 30px;gap:8px;align-items:center;margin-bottom:8px;'+borderStyle+'">';
+    html+='<select class="ec-slot-type" data-idx="'+i+'" onchange="saveECSlot('+i+')" style="padding:8px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;">';
+    html+='<option value="">'+(i+1)+'. Type...</option>';
+    html+='<option value="leadership"'+(ec.type==='leadership'?' selected':'')+'>Leadership</option>';
+    html+='<option value="sport-varsity"'+(ec.type==='sport-varsity'?' selected':'')+'>Varsity Sport</option>';
+    html+='<option value="sport-jv"'+(ec.type==='sport-jv'?' selected':'')+'>JV/Club Sport</option>';
+    html+='<option value="club-president"'+(ec.type==='club-president'?' selected':'')+'>Club Pres/Founder</option>';
+    html+='<option value="club-member"'+(ec.type==='club-member'?' selected':'')+'>Club Member</option>';
+    html+='<option value="volunteer"'+(ec.type==='volunteer'?' selected':'')+'>Volunteer/Service</option>';
+    html+='<option value="work"'+(ec.type==='work'?' selected':'')+'>Job/Internship</option>';
+    html+='<option value="research"'+(ec.type==='research'?' selected':'')+'>Research/Publication</option>';
+    html+='<option value="arts"'+(ec.type==='arts'?' selected':'')+'>Arts/Music/Theater</option>';
+    html+='<option value="competition"'+(ec.type==='competition'?' selected':'')+'>Academic Competition</option>';
+    html+='<option value="national-award"'+(ec.type==='national-award'?' selected':'')+'>National Award</option>';
+    html+='<option value="state-award"'+(ec.type==='state-award'?' selected':'')+'>State/Regional Award</option>';
+    html+='<option value="other"'+(ec.type==='other'?' selected':'')+'>Other</option>';
+    html+='</select>';
+    html+='<input type="text" class="ec-slot-name" data-idx="'+i+'" placeholder="Activity name & description" maxlength="100" value="'+(ec.name||'')+'" onchange="saveECSlot('+i+')" style="padding:8px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;">';
+    html+='<input type="text" class="ec-slot-role" data-idx="'+i+'" placeholder="Your role" maxlength="100" value="'+(ec.role||'')+'" onchange="saveECSlot('+i+')" style="padding:8px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;">';
+    html+='<input type="text" class="ec-slot-years" data-idx="'+i+'" placeholder="Yrs" maxlength="100" value="'+(ec.years||'')+'" onchange="saveECSlot('+i+')" style="padding:8px;border:2px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:12px;font-family:inherit;text-align:center;">';
+    html+='<button onclick="clearECSlot('+i+')" style="background:none;border:none;color:var(--text-secondary);cursor:pointer;font-size:16px;" title="Clear">&times;</button>';
+    html+='</div>';
+  }
+  html+='</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Additional Info (optional)</div>';
+  html+='<div class="college-input-grid" style="margin-bottom:20px;">';
+  html+='<div class="college-input-group"><label>Intended Major</label><input type="text" id="college-major" maxlength="100" placeholder="e.g. Computer Science" value="'+(collegeProfile.major||'')+'" onchange="collegeProfile.major=this.value;saveCollegeProfile();"></div>';
+  html+='<div class="college-input-group"><label>State</label><input type="text" id="college-state" maxlength="100" placeholder="e.g. Maryland" value="'+(collegeProfile.homeState||'')+'" onchange="collegeProfile.homeState=this.value;saveCollegeProfile();"></div>';
+  html+='<div class="college-input-group" style="grid-column:1/-1;"><label>Honors & Awards</label><input type="text" id="college-awards" maxlength="100" placeholder="e.g. National Merit Semifinalist, AP Scholar with Distinction" value="'+(collegeProfile.awards||'')+'" onchange="collegeProfile.awards=this.value;saveCollegeProfile();"></div>';
+  html+='</div>';
+  html+='<div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:10px;">Select a College</div>';
+  html+='<input type="text" class="college-search" id="college-search" placeholder="Search for a college..." oninput="filterColleges(this.value)">';
+  html+='<div class="college-list" id="college-list">';
+  COLLEGE_DATA.forEach((c,i)=>{
+    const typeColor=c.type==='reach'?'var(--grade-e)':c.type==='target'?'var(--grade-c)':c.type==='likely'?'var(--grade-b)':'var(--grade-a)';
+    html+='<div class="college-option" onclick="pickCollege('+i+')"><span>'+c.name+'</span><span style="float:right;font-size:11px;"><span style="color:'+typeColor+';font-weight:600;margin-right:8px;">'+c.type.toUpperCase()+'</span><span style="color:var(--text-secondary);">'+c.accept+'%</span></span></div>';
+  });
+  html+='</div>';
+  html+='<div id="selected-college-name" style="display:none;margin:12px 0;padding:12px 16px;background:var(--bg);border-radius:var(--radius-sm);font-weight:700;font-size:15px;"></div>';
+  var evalLeft=getAIUsesLeft();
+  html+='<button id="ai-evaluate-btn" onclick="runEvaluation()" style="display:none;width:100%;padding:14px;border-radius:var(--radius);background:var(--gradient);color:#fff;border:none;cursor:pointer;font-weight:700;font-size:15px;font-family:inherit;margin-top:8px;transition:opacity 0.2s;" onmouseenter="this.style.opacity=0.9" onmouseleave="this.style.opacity=1">Evaluate My Chances</button>';
+  html+='<div id="eval-uses-left" style="display:none;text-align:center;font-size:11px;color:var(--text-secondary);margin-top:6px;">'+evalLeft+'/1 evaluations left today &middot; Powered by CDS + AI</div>';
+  html+='<div id="college-result" style="margin-top:16px;"></div>';
+  html+='</div></div>';
+
+  el.innerHTML=html;
+}
+// EC slot management
+function saveECSlot(idx){
+  const types=document.querySelectorAll('.ec-slot-type');
+  const names=document.querySelectorAll('.ec-slot-name');
+  const roles=document.querySelectorAll('.ec-slot-role');
+  const years=document.querySelectorAll('.ec-slot-years');
+  const t=types[idx]?.value||'';const n=names[idx]?.value||'';const r=roles[idx]?.value||'';const y=years[idx]?.value||'';
+  if(!t&&!n)return;
+  while(collegeProfile.ecs.length<=idx)collegeProfile.ecs.push({type:'',name:'',role:'',years:''});
+  collegeProfile.ecs[idx]={type:t,name:n,role:r,years:y};
+  // Trim trailing empty slots
+  while(collegeProfile.ecs.length>0&&!collegeProfile.ecs[collegeProfile.ecs.length-1].type&&!collegeProfile.ecs[collegeProfile.ecs.length-1].name)collegeProfile.ecs.pop();
+  saveCollegeProfile();
+}
+function clearECSlot(idx){
+  if(collegeProfile.ecs[idx])collegeProfile.ecs[idx]={type:'',name:'',role:'',years:''};
+  while(collegeProfile.ecs.length>0&&!collegeProfile.ecs[collegeProfile.ecs.length-1].type&&!collegeProfile.ecs[collegeProfile.ecs.length-1].name)collegeProfile.ecs.pop();
+  saveCollegeProfile();
+  const types=document.querySelectorAll('.ec-slot-type');const names=document.querySelectorAll('.ec-slot-name');
+  const roles=document.querySelectorAll('.ec-slot-role');const years=document.querySelectorAll('.ec-slot-years');
+  if(types[idx])types[idx].value='';if(names[idx])names[idx].value='';if(roles[idx])roles[idx].value='';if(years[idx])years[idx].value='';
+}
+function saveCourseYear(idx,val){
+  if(!collegeProfile.courses)collegeProfile.courses=['','','',''];
+  collegeProfile.courses[idx]=val;
+  saveCollegeProfile();
+}
+let selectedCollegeIdx=null;
+function pickCollege(idx){
+  selectedCollegeIdx=idx;
+  document.querySelectorAll('.college-option').forEach((el,i)=>{el.classList.toggle('selected',i===idx);});
+  const nameEl=document.getElementById('selected-college-name');
+  nameEl.style.display='block';
+  nameEl.textContent='Selected: '+COLLEGE_DATA[idx].name+' ('+COLLEGE_DATA[idx].accept+'% acceptance)';
+  document.getElementById('ai-evaluate-btn').style.display='block';
+  document.getElementById('eval-uses-left').style.display='block';
+  document.getElementById('college-result').innerHTML='';
+}
+function filterColleges(query){
+  const list=document.getElementById('college-list');
+  const q=query.toLowerCase();
+  list.querySelectorAll('.college-option').forEach((el,i)=>{
+    el.style.display=COLLEGE_DATA[i].name.toLowerCase().includes(q)?'block':'none';
+  });
+}
+// eval key
+var _WORKER_URL='https://bunked-ai.academiaproxy.workers.dev';
+// Rate limiting: 1 AI deep dive per day
+function getAIUsesLeft(){const data=JSON.parse(localStorage.getItem('bunked-ai-uses')||'{}');const today=new Date().toISOString().split('T')[0];if(data.date!==today)return 1;return Math.max(0,1-(data.count||0));}
+function recordAIUse(){const today=new Date().toISOString().split('T')[0];const data=JSON.parse(localStorage.getItem('bunked-ai-uses')||'{}');if(data.date!==today){localStorage.setItem('bunked-ai-uses',JSON.stringify({date:today,count:1}));}else{data.count=(data.count||0)+1;localStorage.setItem('bunked-ai-uses',JSON.stringify(data));}}
+// Algorithmic college evaluation scoring functions
+function scoreGPA(studentGPA,collegeGPA){
+  // Sigmoid scoring: at college avg=50, above=higher, below=lower
+  const diff=studentGPA-collegeGPA;
+  const z=diff/0.18;
+  return Math.max(0,Math.min(100,Math.round(100/(1+Math.exp(-z)))));
+}
+function scoreTest(studentSAT,studentACT,c){
+  // Score based on where student falls relative to middle 50%
+  if(!studentSAT&&!studentACT)return null; // no score = skip
+  let best=0;
+  if(studentSAT){
+    const mid=(c.sat25+c.sat75)/2;const range=c.sat75-c.sat25;
+    const z=(studentSAT-mid)/(range/2||1);
+    best=Math.max(best,Math.max(0,Math.min(100,Math.round(50+z*30))));
+  }
+  if(studentACT){
+    const mid=(c.act25+c.act75)/2;const range=c.act75-c.act25;
+    const z=(studentACT-mid)/(range/2||1);
+    best=Math.max(best,Math.max(0,Math.min(100,Math.round(50+z*30))));
+  }
+  return best;
+}
+function scoreRigor(d,c){
+  // Score based on AP+Honors ratio relative to school expectations
+  const total=d.totalClasses||1;
+  const advancedRatio=(d.apCount*2+d.honCount)/total;
+  // Scale by acceptance rate: more selective = higher bar
+  const bar=c.accept<10?0.7:c.accept<20?0.55:c.accept<40?0.4:c.accept<60?0.3:0.2;
+  const ratio=advancedRatio/bar;
+  return Math.max(0,Math.min(100,Math.round(ratio*55)));
+}
+function scoreEC(ecs){
+  // Comprehensive EC scoring: quantity, quality, leadership, commitment
+  if(!ecs||ecs.length===0)return 10;
+  let score=0;const filled=ecs.filter(e=>e.type||e.name);
+  if(filled.length===0)return 10;
+  // Base: number of activities (diminishing returns)
+  score+=Math.min(30,filled.length*7);
+  // Leadership/quality bonuses
+  const highImpact=['national-award','research','club-president','state-award','competition'];
+  const medImpact=['leadership','sport-varsity','arts','work'];
+  filled.forEach(e=>{
+    if(highImpact.includes(e.type))score+=10;
+    else if(medImpact.includes(e.type))score+=6;
+    else score+=3;
+    // Years of commitment bonus
+    const yrs=parseFloat(e.years)||0;
+    if(yrs>=3)score+=4;else if(yrs>=2)score+=2;
+    // Has a leadership role
+    if(e.role&&e.role.toLowerCase().match(/president|captain|founder|editor|director|chair|lead|head/))score+=5;
+  });
+  return Math.max(0,Math.min(100,score));
+}
+function findSimilarSchools(c,overallScore){
+  // Find 3 schools at a similar level to suggest
+  const similar=[];
+  COLLEGE_DATA.forEach(s=>{
+    if(s.name===c.name)return;
+    const acceptDiff=Math.abs(s.accept-c.accept);
+    const gpaDiff=Math.abs(s.gpa-c.gpa);
+    if(acceptDiff<15&&gpaDiff<0.15)similar.push({name:s.name,diff:acceptDiff+gpaDiff*50});
+  });
+  similar.sort((a,b)=>a.diff-b.diff);
+  return similar.slice(0,3).map(s=>s.name);
+}
+// Profanity filter for user inputs before AI evaluation
+const _profanityList=/\b(fuck|shit|ass|bitch|damn|dick|pussy|cock|cunt|bastard|slut|whore|nigga|nigger|fag|faggot|retard|rape|kill\s+yourself|kys)\b/i;
+function hasProfanity(text){return _profanityList.test(text||'');}
+function checkProfileProfanity(){
+  const fields=[collegeProfile.major,collegeProfile.homeState,collegeProfile.awards,...(collegeProfile.courses||[]),...(collegeProfile.ecs||[]).map(e=>[e.name,e.role,e.type].join(' '))];
+  return fields.some(f=>hasProfanity(f));
+}
+async function runEvaluation(){
+  if(selectedCollegeIdx===null)return;
+  const c=COLLEGE_DATA[selectedCollegeIdx];
+  const d=computeRankedData();if(!d)return;
+
+  // Profanity check
+  if(checkProfileProfanity()){
+    document.getElementById('college-result').innerHTML='<div style="text-align:center;padding:30px;color:var(--grade-e);font-size:14px;">Your profile contains inappropriate language. Please clean up your entries before running an evaluation.</div>';
+    return;
+  }
+
+  // Check AI rate limit
+  const usesLeft=getAIUsesLeft();
+  if(usesLeft<=0){
+    document.getElementById('college-result').innerHTML='<div style="text-align:center;padding:30px;color:var(--grade-e);font-size:14px;">Daily evaluation limit reached (1/day). Try again tomorrow.</div>';
+    return;
+  }
+
+  // Disable button & show loading
+  const btn=document.getElementById('ai-evaluate-btn');
+  btn.disabled=true;btn.textContent='Analyzing with AI...';btn.style.opacity='0.6';
+  document.getElementById('college-result').innerHTML='<div style="text-align:center;padding:40px;"><div style="display:inline-block;width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin 0.8s linear infinite;"></div><div style="margin-top:12px;color:var(--text-secondary);font-size:14px;">AI is evaluating your profile against '+c.name+'\'s CDS data...</div></div>';
+
+  // Compute sub-scores
+  const gpaS=scoreGPA(d.wGPA,c.gpa);
+  const testS=scoreTest(collegeProfile.sat,collegeProfile.act,c);
+  const rigorS=scoreRigor(d,c);
+  const ecs=collegeProfile.ecs.filter(e=>e.type||e.name);
+  const ecS=scoreEC(ecs);
+  const ecList=ecs.length>0?ecs.map(function(e,i){return(i+1)+'. ['+e.type+'] '+e.name+(e.role?' — '+e.role:'')+(e.years?' ('+e.years+'yr)':'')}).join('; '):'None';
+  const courseHist=(collegeProfile.courses||[]).map(function(cv,i){return['Fr','So','Jr','Sr'][i]+': '+(cv||'N/A')}).join('; ');
+
+  // Weighted overall score for visual display
+  let weightedSum=gpaS*c.wG+rigorS*c.wR+ecS*c.wE;
+  let weightTotal=c.wG+c.wR+c.wE;
+  if(testS!==null){weightedSum+=testS*c.wT;weightTotal+=c.wT;}
+  const selectivityPenalty=c.accept<5?-12:c.accept<10?-8:c.accept<15?-5:c.accept<25?-2:0;
+  const overall=Math.max(0,Math.min(100,Math.round(weightedSum/weightTotal)+selectivityPenalty));
+
+  const similar=findSimilarSchools(c,overall);
+
+  // Build AI prompt with full CDS context
+  var p=[];
+  p.push('You are an expert college admissions counselor. Evaluate this student\'s chances at '+c.name+' using the Common Data Set (CDS) statistics provided.');
+  p.push('');
+  p.push('CDS DATA FOR '+c.name.toUpperCase()+' ('+c.accept+'% acceptance rate):');
+  p.push('- Avg Admitted GPA: '+c.gpa);
+  p.push('- SAT Middle 50%: '+c.sat25+'-'+c.sat75);
+  p.push('- ACT Middle 50%: '+c.act25+'-'+c.act75);
+  p.push('- CDS C7 Factor Weights (1=not considered, 5=very important): GPA='+c.wG+', Testing='+c.wT+', Rigor='+c.wR+', Extracurriculars='+c.wE);
+  p.push('');
+  p.push('STUDENT PROFILE:');
+  p.push('- Weighted GPA: '+d.wGPA.toFixed(2)+' | Unweighted GPA: '+d.uwGPA.toFixed(2));
+  p.push('- SAT: '+(collegeProfile.sat||'Not submitted')+' | ACT: '+(collegeProfile.act||'Not submitted'));
+  p.push('- AP/IB Courses: '+d.apCount+' | Honors Courses: '+d.honCount+' | Total Classes: '+d.totalClasses);
+  p.push('- Current Classes & Grades: '+d.classRanks.map(function(r){return r.title+' ('+r.pct+'%)'}).join(', '));
+  p.push('- Extracurriculars: '+ecList);
+  p.push('- Intended Major: '+(collegeProfile.major||'Undecided'));
+  p.push('- Home State: '+(collegeProfile.homeState||'N/A'));
+  p.push('- Awards/Honors: '+(collegeProfile.awards||'None listed'));
+  p.push('- Course History by Year: '+courseHist);
+  p.push('');
+  p.push('COMPUTED SCORES (out of 100, comparing student to CDS benchmarks):');
+  p.push('- GPA Score: '+gpaS+'/100 (vs admitted avg '+c.gpa+')');
+  if(testS!==null)p.push('- Test Score: '+testS+'/100 (vs middle 50%: '+c.sat25+'-'+c.sat75+')');
+  else p.push('- Test Score: Not submitted');
+  p.push('- Course Rigor Score: '+rigorS+'/100');
+  p.push('- Extracurricular Score: '+ecS+'/100');
+  p.push('- Overall Weighted Score: '+overall+'/100');
+  p.push('');
+  p.push('Based on this CDS data comparison, provide a comprehensive evaluation. Compare each factor directly to the CDS statistics. Be HONEST, specific, and reference real numbers from the CDS data.');
+  p.push('');
+  p.push('Respond in JSON ONLY with this exact structure:');
+  p.push('{');
+  p.push('  "verdict": "one of: Strong Match, Competitive, On the Bubble, Reach, Significant Reach",');
+  p.push('  "verdict_summary": "2-3 sentence assessment comparing student to CDS data specifically",');
+  p.push('  "gpa_assessment": "1-2 sentences comparing student GPA to CDS admitted average, reference the numbers",');
+  p.push('  "test_assessment": "1-2 sentences comparing scores to CDS middle 50%, or note if not submitted",');
+  p.push('  "rigor_assessment": "1-2 sentences on course rigor relative to what this school expects per CDS C7",');
+  p.push('  "ec_assessment": "1-2 sentences on extracurricular strength relative to CDS C7 weight for this school",');
+  p.push('  "strengths": ["3-5 specific strengths based on CDS comparison"],');
+  p.push('  "weaknesses": ["2-4 specific areas of concern based on CDS comparison"],');
+  p.push('  "recommendations": ["3-4 specific actionable steps referencing real CDS numbers and thresholds"],');
+  p.push('  "standout_factor": "the single most notable thing about this application",');
+  p.push('  "biggest_risk": "the single biggest risk that could sink the application"');
+  p.push('}');
+  const prompt=p.join('\n');
+
+  try{
+    let res,lastErr;
+    try{
+      res=await fetch(_WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:prompt})});
+      if(!res.ok){lastErr='API error '+res.status;res=null;}
+    }catch(e){lastErr=e.message;res=null;}
+    if(!res||!res.ok)throw new Error(lastErr||'API request failed');
+    const data=await res.json();
+    const text=data.choices?.[0]?.message?.content||'';
+    const jsonStr=text.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim();
+    const ai=JSON.parse(jsonStr);
+    recordAIUse();
+    const newLeft=getAIUsesLeft();
+
+    // Map verdict to colors
+    const verdictColors={'Strong Match':['var(--grade-a-bg)','var(--grade-a)'],'Competitive':['var(--grade-b-bg)','var(--grade-b)'],'On the Bubble':['var(--grade-c-bg)','var(--grade-c)'],'Reach':['rgba(255,152,0,0.1)','#ff9800'],'Significant Reach':['var(--grade-e-bg)','var(--grade-e)']};
+    const vc=verdictColors[ai.verdict]||verdictColors['On the Bubble'];
+    const statusColor={strong:'var(--grade-a)',solid:'var(--grade-b)',weak:'#ff9800',concern:'var(--grade-e)'};
+
+    // Build unified result
+    let rhtml='<div class="college-result">';
+
+    // Header: school name + overall score
+    rhtml+='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;flex-wrap:wrap;gap:12px;"><div><div style="font-size:20px;font-weight:800;">'+c.name+'</div><div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">Acceptance Rate: '+c.accept+'% &middot; CDS + AI Analysis &middot; '+newLeft+'/2 left today</div></div><div style="font-size:28px;font-weight:900;color:'+vc[1]+';">'+overall+'<span style="font-size:16px;font-weight:600;">/100</span></div></div>';
+
+    // Verdict badge
+    rhtml+='<div class="college-verdict" style="background:'+vc[0]+';color:'+vc[1]+';margin-bottom:10px;">'+(ai.verdict||'Evaluating')+'</div>';
+
+    // AI verdict summary
+    rhtml+='<div style="font-size:14px;line-height:1.7;margin-bottom:20px;color:var(--text-secondary);">'+(ai.verdict_summary||'')+'</div>';
+
+    // Visual comparison bars: You vs Admitted
+    rhtml+='<div style="font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin-bottom:12px;">Your Stats vs. Admitted Students</div>';
+    rhtml+='<div style="display:grid;gap:14px;margin-bottom:20px;">';
+    var gpaMax=5.0;
+    rhtml+='<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span>Weighted GPA</span><span style="font-weight:700;">You: '+d.wGPA.toFixed(2)+' / Avg: '+c.gpa.toFixed(2)+'</span></div>';
+    rhtml+='<div style="position:relative;height:20px;background:var(--border);border-radius:4px;overflow:hidden;">';
+    rhtml+='<div style="position:absolute;left:0;top:0;height:100%;width:'+Math.min(100,d.wGPA/gpaMax*100)+'%;background:var(--primary);border-radius:4px;opacity:0.9;"></div>';
+    rhtml+='<div style="position:absolute;left:'+Math.min(100,c.gpa/gpaMax*100)+'%;top:0;height:100%;width:2px;background:var(--text);"></div>';
+    rhtml+='</div></div>';
+    if(collegeProfile.sat){
+      var satMin=800,satMax=1600;
+      rhtml+='<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span>SAT</span><span style="font-weight:700;">You: '+collegeProfile.sat+' / Middle 50%: '+c.sat25+'-'+c.sat75+'</span></div>';
+      rhtml+='<div style="position:relative;height:20px;background:var(--border);border-radius:4px;overflow:hidden;">';
+      rhtml+='<div style="position:absolute;left:'+((c.sat25-satMin)/(satMax-satMin)*100)+'%;top:0;height:100%;width:'+((c.sat75-c.sat25)/(satMax-satMin)*100)+'%;background:var(--grade-b);opacity:0.3;border-radius:2px;"></div>';
+      rhtml+='<div style="position:absolute;left:'+Math.min(100,(collegeProfile.sat-satMin)/(satMax-satMin)*100)+'%;top:2px;height:16px;width:8px;background:var(--primary);border-radius:2px;"></div>';
+      rhtml+='</div></div>';
+    }
+    if(collegeProfile.act){
+      var actMin=1,actMax=36;
+      rhtml+='<div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;"><span>ACT</span><span style="font-weight:700;">You: '+collegeProfile.act+' / Middle 50%: '+c.act25+'-'+c.act75+'</span></div>';
+      rhtml+='<div style="position:relative;height:20px;background:var(--border);border-radius:4px;overflow:hidden;">';
+      rhtml+='<div style="position:absolute;left:'+((c.act25-actMin)/(actMax-actMin)*100)+'%;top:0;height:100%;width:'+((c.act75-c.act25)/(actMax-actMin)*100)+'%;background:var(--grade-b);opacity:0.3;border-radius:2px;"></div>';
+      rhtml+='<div style="position:absolute;left:'+Math.min(100,(collegeProfile.act-actMin)/(actMax-actMin)*100)+'%;top:2px;height:16px;width:8px;background:var(--primary);border-radius:2px;"></div>';
+      rhtml+='</div></div>';
+    }
+    rhtml+='</div>';
+
+    // Factor scores with AI assessments
+    rhtml+='<div class="factor-breakdown">';
+    var factors=[
+      {label:'GPA',score:gpaS,text:ai.gpa_assessment||'',weight:c.wG},
+      {label:'Testing',score:testS!==null?testS:0,text:ai.test_assessment||'',weight:testS!==null?c.wT:0},
+      {label:'Course Rigor',score:rigorS,text:ai.rigor_assessment||'',weight:c.wR},
+      {label:'Extracurriculars',score:ecS,text:ai.ec_assessment||'',weight:c.wE}
+    ];
+    factors.forEach(function(f){
+      var barColor=f.score>=70?'var(--grade-a)':f.score>=50?'var(--grade-b)':f.score>=35?'#ff9800':'var(--grade-e)';
+      var importLabel=f.weight>=5?'Critical':f.weight>=4?'Very Important':f.weight>=3?'Important':f.weight>=2?'Considered':'Minor';
+      rhtml+='<div class="factor-card"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;"><div class="factor-label" style="margin-bottom:0;">'+f.label+'</div><div style="font-size:18px;font-weight:800;color:'+barColor+';">'+f.score+'<span style="font-size:12px;font-weight:500;">/100</span></div></div>';
+      rhtml+='<div style="height:6px;background:var(--border);border-radius:3px;margin-bottom:6px;overflow:hidden;"><div style="height:100%;width:'+f.score+'%;background:'+barColor+';border-radius:3px;transition:width 0.3s;"></div></div>';
+      rhtml+='<div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px;">Weight: '+importLabel+' for '+c.name+'</div>';
+      rhtml+='<div style="font-size:13px;line-height:1.5;color:var(--text-secondary);">'+f.text+'</div></div>';
+    });
+    rhtml+='</div>';
+
+    // Standout Factor + Biggest Risk
+    rhtml+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">';
+    rhtml+='<div style="padding:14px;background:var(--grade-a-bg);border-radius:var(--radius-sm);"><div style="font-size:11px;font-weight:700;color:var(--grade-a);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Standout Factor</div><div style="font-size:13px;line-height:1.5;">'+(ai.standout_factor||'N/A')+'</div></div>';
+    rhtml+='<div style="padding:14px;background:var(--grade-e-bg);border-radius:var(--radius-sm);"><div style="font-size:11px;font-weight:700;color:var(--grade-e);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Biggest Risk</div><div style="font-size:13px;line-height:1.5;">'+(ai.biggest_risk||'N/A')+'</div></div>';
+    rhtml+='</div>';
+
+    // Strengths & Weaknesses (from AI)
+    rhtml+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">';
+    rhtml+='<div style="padding:14px;background:var(--grade-a-bg);border-radius:var(--radius-sm);"><div style="font-weight:700;font-size:13px;color:var(--grade-a);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Strengths</div>';
+    (ai.strengths||[]).slice(0,5).forEach(function(s){rhtml+='<div style="font-size:13px;margin-bottom:6px;line-height:1.4;">&#10003; '+s+'</div>';});
+    rhtml+='</div>';
+    rhtml+='<div style="padding:14px;background:var(--grade-e-bg);border-radius:var(--radius-sm);"><div style="font-weight:700;font-size:13px;color:var(--grade-e);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Areas to Improve</div>';
+    (ai.weaknesses||[]).slice(0,5).forEach(function(w){rhtml+='<div style="font-size:13px;margin-bottom:6px;line-height:1.4;">&#10007; '+w+'</div>';});
+    rhtml+='</div></div>';
+
+    // Recommendations (from AI)
+    rhtml+='<div style="padding:14px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:16px;"><div style="font-weight:700;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Recommendations</div>';
+    (ai.recommendations||[]).slice(0,4).forEach(function(r,i){rhtml+='<div style="font-size:13px;margin-bottom:6px;line-height:1.4;">'+(i+1)+'. '+r+'</div>';});
+    rhtml+='</div>';
+
+    // Similar schools
+    if(similar.length>0){
+      rhtml+='<div style="font-size:12px;color:var(--text-secondary);margin-bottom:16px;">Also consider: <span style="font-weight:600;">'+similar.join(', ')+'</span></div>';
+    }
+
+    // "How is this accurate?" section
+    rhtml+='<div style="border-top:1px solid var(--border);padding-top:14px;margin-top:8px;">';
+    rhtml+='<div onclick="document.getElementById(\'accuracy-detail\').style.display=document.getElementById(\'accuracy-detail\').style.display===\'none\'?\'block\':\'none\'" style="cursor:pointer;display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text-secondary);">';
+    rhtml+='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> How is this accurate?</div>';
+    rhtml+='<div id="accuracy-detail" style="display:none;margin-top:10px;font-size:12px;line-height:1.7;color:var(--text-secondary);">';
+    rhtml+='<p style="margin-bottom:8px;">This evaluation combines <strong>Common Data Set (CDS)</strong> statistics with <strong>AI analysis</strong> to give you a comprehensive picture. CDS is a standardized survey that colleges publish annually with real admissions data.</p>';
+    rhtml+='<p style="margin-bottom:8px;"><strong>Quantitative Scores:</strong> Your GPA, test scores, course rigor, and extracurriculars are scored against CDS benchmarks using statistical models. Factor weights come from CDS Section C7 (relative importance of factors in admission).</p>';
+    rhtml+='<p style="margin-bottom:8px;"><strong>AI Analysis:</strong> AI interprets the CDS comparison to provide nuanced, school-specific assessment text — the verdict, strengths, weaknesses, and recommendations are all generated by analyzing your profile against the CDS data.</p>';
+    rhtml+='<p><strong>Limitations:</strong> This cannot account for essays, letters of recommendation, interviews, demonstrated interest, legacy status, or other holistic factors. Treat this as a data-driven starting point, not a guarantee.</p>';
+    rhtml+='</div></div>';
+
+    rhtml+='</div>';
+    document.getElementById('college-result').innerHTML=rhtml;
+  }catch(err){
+    console.error('College evaluation error:',err);
+    document.getElementById('college-result').innerHTML='<div style="text-align:center;padding:30px;color:var(--grade-e);font-size:14px;">Evaluation failed: '+err.message+'. Try again.</div>';
+  }finally{
+    btn.disabled=false;btn.textContent='Evaluate My Chances';btn.style.opacity='1';
+  }
+}
+
+/* ===== BRAIN PUZZLES ENGINE ===== */
+var _pzInited=false;
+function initPuzzles(){
+  if(!_pzInited){
+    _pzInited=true;
+    var saved=localStorage.getItem('bunked_wordle_'+getDaySeed());
+    if(saved){try{_wState=JSON.parse(saved);}catch(e){}}
+    if(!_wState.answer||_wState.answer!==getWordleAnswer()){
+      _wState={guesses:[],current:'',row:0,done:false,answer:getWordleAnswer(),shakeRow:-1,flipRow:-1};
+    }
+  }
+  renderWordle();
+}
+
+/* -- Date seed helper -- */
+function getDaySeed(){var d=new Date();return d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();}
+function seededRandom(seed){var x=Math.sin(seed)*10000;return x-Math.floor(x);}
+function shuffleWithSeed(arr,seed){var a=arr.slice();for(var i=a.length-1;i>0;i--){seed++;var j=Math.floor(seededRandom(seed)*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ========== WORDLE ========== */
+var WORDLE_WORDS=['CRANE','SLATE','TRACE','AUDIO','RAISE','STARE','AROSE','IRATE','LEARN','HEART','OCEAN','MEDIA','STORM','BLAZE','FROST','GLEAM','PLUMB','SWEAR','TRICK','GHOST','WITCH','FLAME','BRAVE','DRIFT','CRISP','PLANT','SHOVE','GLYPH','KNELT','DWARF','MANGO','QUIRK','ZEBRA','JOUST','PIXEL','WALTZ','NEXUS','HEIST','LIVER','CHARM','MONKS','GRASP','SPICE','WHEAT','GLOBE','FLINT','PRISM','ROAST','VINYL','BRINE','CLOAK','DENIM','HAVEN','PERCH','RIDER','TULIP','VENOM','WRIST','YACHT','LEMON','CIDER','FORGE','MARSH','OLIVE','ROGUE','BLEND','CHUNK','DODGE','FIBER','GRAIL','HASTE','JOKER','PLEAD','SCOUT','THUMP','VAPOR','BERTH','CREST','EXPEL','FUDGE','OPTIC','PRIZE','REIGN','SHALE','TIARA','USHER','DELVE','GIDDY','NOVEL','POUCH','SIEGE','VIVID','AMAZE','ELBOW','HUSKY','KNACK','MOOSE','PLAZA','QUILT','SNARE','TWIRL','ABODE','GROWL','IVORY','LUSTY','NUDGE','REIGN','SQUID','TROVE','YOUTH','AMBER','CEDAR','DEBUT','EXUDE','FLASK','GRIEF','HYENA','INLET','JUICY','KOALA','LYNCH','MERIT','NOTCH','OASIS','PANSY','QUERY','RIVET','SCOWL','TENOR','ULTRA','VERSE','WOUND','XEROX','YIELD','ZESTY'];
+/* valid guesses: any 5-letter word accepted */
+
+var _wState={guesses:[],current:'',row:0,done:false,answer:'',shakeRow:-1,flipRow:-1};
+
+function getWordleAnswer(){
+  var seed=getDaySeed();
+  var idx=Math.floor(seededRandom(seed)*WORDLE_WORDS.length);
+  return WORDLE_WORDS[idx];
+}
+
+function isValidWord(w){
+  return w.length===5&&/^[A-Z]{5}$/.test(w);
+}
+
+function renderWordle(){
+  /* state loaded in initPuzzles */
+  var c=document.getElementById('puzzle-container');
+  var h='<div style="max-width:400px;margin:0 auto;text-align:center;">';
+  h+='<div style="font-size:12px;color:var(--text-secondary);margin-bottom:16px;">Guess the 5-letter word in 6 tries</div>';
+  h+='<div id="wordle-grid" style="display:grid;grid-template-rows:repeat(6,1fr);gap:6px;margin-bottom:20px;">';
+  for(var r=0;r<6;r++){
+    var shake=_wState.shakeRow===r?' wordle-shake':'';
+    h+='<div class="wordle-row'+shake+'" style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">';
+    for(var col=0;col<5;col++){
+      var letter='',cls='wordle-cell-empty',flip='';
+      if(r<_wState.guesses.length){
+        var g=_wState.guesses[r];
+        letter=g.word[col];
+        cls='wordle-cell-'+g.colors[col];
+        flip=r===_wState.flipRow?' wordle-flip':'';
+      }else if(r===_wState.row&&col<_wState.current.length){
+        letter=_wState.current[col];
+        cls='wordle-cell-filled';
+      }
+      h+='<div class="wordle-cell '+cls+flip+'" style="width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:clamp(18px,5vw,28px);font-weight:800;font-family:\'Space Grotesk\',monospace;border-radius:6px;text-transform:uppercase;animation-delay:'+(col*0.15)+'s;">'+letter+'</div>';
+    }
+    h+='</div>';
+  }
+  h+='</div>';
+  h+='<div id="wordle-msg" style="min-height:28px;margin-bottom:14px;font-size:14px;font-weight:600;"></div>';
+  var rows=[['Q','W','E','R','T','Y','U','I','O','P'],['A','S','D','F','G','H','J','K','L'],['ENTER','Z','X','C','V','B','N','M','DEL']];
+  h+='<div id="wordle-kb">';
+  var kbState=getWordleKBState();
+  for(var kr=0;kr<rows.length;kr++){
+    h+='<div style="display:flex;gap:4px;justify-content:center;margin-bottom:4px;">';
+    for(var ki=0;ki<rows[kr].length;ki++){
+      var k=rows[kr][ki];
+      var kcls=kbState[k]||'unused';
+      var wide=k==='ENTER'||k==='DEL'?'flex:1.5;font-size:11px;':'flex:1;font-size:clamp(12px,3vw,16px);';
+      h+='<button onclick="wordleKey(\''+k+'\')" class="wk-'+kcls+'" style="'+wide+'padding:12px 0;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-family:\'Space Grotesk\',monospace;text-transform:uppercase;">'+k+'</button>';
+    }
+    h+='</div>';
+  }
+  h+='</div></div>';
+  h+='<style>';
+  h+='.wordle-cell-empty{background:var(--bg-card);border:2px solid var(--border);color:var(--text-primary);}';
+  h+='.wordle-cell-filled{background:var(--bg-card);border:2px solid var(--text-secondary);color:var(--text-primary);}';
+  h+='.wordle-cell-green{background:#538d4e;border:2px solid #538d4e;color:#fff;}';
+  h+='.wordle-cell-yellow{background:#b59f3b;border:2px solid #b59f3b;color:#fff;}';
+  h+='.wordle-cell-gray{background:#3a3a3c;border:2px solid #3a3a3c;color:#fff;}';
+  h+='.wk-unused{background:rgba(255,255,255,0.12);color:var(--text-primary);}';
+  h+='.wk-green{background:#538d4e;color:#fff;}';
+  h+='.wk-yellow{background:#b59f3b;color:#fff;}';
+  h+='.wk-gray{background:#3a3a3c;color:#666;}';
+  h+='.wordle-flip{animation:wflip 0.4s ease;}';
+  h+='@keyframes wflip{0%{transform:scaleY(1);}50%{transform:scaleY(0);}100%{transform:scaleY(1);}}';
+  h+='.wordle-shake{animation:wshake 0.4s ease;}';
+  h+='@keyframes wshake{0%,100%{transform:translateX(0);}20%{transform:translateX(-6px);}40%{transform:translateX(6px);}60%{transform:translateX(-4px);}80%{transform:translateX(4px);}}';
+  h+='</style>';
+  c.innerHTML=h;
+  _wState.shakeRow=-1;
+  _wState.flipRow=-1;
+  if(_wState.done){
+    var msg=document.getElementById('wordle-msg');
+    if(_wState.guesses.length>0&&_wState.guesses[_wState.guesses.length-1].word===_wState.answer){
+      var msgs=['Genius!','Magnificent!','Impressive!','Splendid!','Great!','Phew!'];
+      msg.innerHTML='<span style="color:#538d4e;">'+msgs[Math.min(_wState.guesses.length-1,5)]+'</span> You got it in '+_wState.guesses.length+'/6';
+    }else{
+      msg.innerHTML='The word was <span style="color:#b59f3b;font-weight:800;">'+_wState.answer+'</span>';
+    }
+  }
+}
+
+function getWordleKBState(){
+  var st={};
+  for(var i=0;i<_wState.guesses.length;i++){
+    var g=_wState.guesses[i];
+    for(var j=0;j<5;j++){
+      var l=g.word[j],c=g.colors[j];
+      if(c==='green')st[l]='green';
+      else if(c==='yellow'&&st[l]!=='green')st[l]='yellow';
+      else if(c==='gray'&&!st[l])st[l]='gray';
+    }
+  }
+  return st;
+}
+
+function wordleKey(k){
+  if(_wState.done)return;
+  if(k==='DEL'){
+    _wState.current=_wState.current.slice(0,-1);
+    renderWordle();return;
+  }
+  if(k==='ENTER'){
+    if(_wState.current.length!==5){_wState.shakeRow=_wState.row;renderWordle();return;}
+    if(!isValidWord(_wState.current)){
+      _wState.shakeRow=_wState.row;renderWordle();
+      document.getElementById('wordle-msg').innerHTML='<span style="color:var(--grade-e);">Not in word list</span>';
+      return;
+    }
+    var colors=scoreWordle(_wState.current,_wState.answer);
+    _wState.guesses.push({word:_wState.current,colors:colors});
+    _wState.flipRow=_wState.guesses.length-1;
+    var won=_wState.current===_wState.answer;
+    _wState.current='';
+    _wState.row++;
+    if(won||_wState.row>=6)_wState.done=true;
+    saveWordleState();
+    renderWordle();
+    return;
+  }
+  if(_wState.current.length<5&&/^[A-Z]$/.test(k)){
+    _wState.current+=k;
+    renderWordle();
+  }
+}
+
+function scoreWordle(guess,answer){
+  var colors=['gray','gray','gray','gray','gray'];
+  var ansArr=answer.split('');
+  var used=[false,false,false,false,false];
+  for(var i=0;i<5;i++){
+    if(guess[i]===ansArr[i]){colors[i]='green';used[i]=true;ansArr[i]='_';}
+  }
+  for(var i=0;i<5;i++){
+    if(colors[i]==='green')continue;
+    var idx=ansArr.indexOf(guess[i]);
+    if(idx!==-1){colors[i]='yellow';ansArr[idx]='_';}
+  }
+  return colors;
+}
+
+function saveWordleState(){localStorage.setItem('bunked_wordle_'+getDaySeed(),JSON.stringify(_wState));}
+
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('page-puzzles')||!document.getElementById('page-puzzles').classList.contains('active'))return;
+  if(e.key==='Enter'){e.preventDefault();wordleKey('ENTER');}
+  else if(e.key==='Backspace'){e.preventDefault();wordleKey('DEL');}
+  else if(/^[a-zA-Z]$/.test(e.key)){wordleKey(e.key.toUpperCase());}
+});
+
+function navigate(page){state.currentPage=page;if(page==='opportunities')loadOpportunities();if(page==='ranked')renderRanked();if(page==='puzzles')initPuzzles();if(page==='faq'){}document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+page).classList.add('active');document.querySelectorAll('.nav-item[data-page]').forEach(n=>{n.classList.toggle('active',n.dataset.page===page);});document.getElementById('sidebar').classList.remove('open');document.getElementById('sidebar-overlay').classList.remove('open');}
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('sidebar-overlay').classList.toggle('open');}
+function showSpinner(){document.getElementById('spinner').classList.add('active');}
+function hideSpinner(){document.getElementById('spinner').classList.remove('active');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+window.addEventListener('beforeunload',function(){if(state){state.password='';state.authToken=null;}});
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e9c8d6a8d16b4d68be0364f0feec618e"}'></script>
+</body>
+</html>
